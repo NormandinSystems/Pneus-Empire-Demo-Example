@@ -199,7 +199,7 @@
         <div class="flex whitespace-nowrap overflow-hidden relative">
             <div class="animate-marquee flex gap-12 items-center text-3xl md:text-4xl font-black uppercase">
                 <img src="hd-michelin-logo-transparent-background-701751694705785cnyrhlb7bc.png" alt="Michelin" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
-                <img src="Goodyear_Logo.png" alt="Goodyear" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Goodyear_Logo.jpg" alt="Goodyear" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
                 <img src="pirelli-vector-logo.png" alt="Pirelli" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
                 <img src="Bridgestone-Logo.png" alt="Bridgestone" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
                 <img src="png-clipart-car-continental-ag-continental-automotive-systems-automotive-industry-tire-car-text-orange.png" alt="Continental" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
@@ -527,23 +527,154 @@
         </div>
     </section>
 
-    <!-- Products Showcase -->
-    <section id="products" class="py-20 bg-white dark:bg-dark-bg">
+    <!-- Products Showcase / Lead Gen -->
+    <section id="products" class="py-20 bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4">
-            <h2 class="font-display font-black text-4xl uppercase mb-10 text-center" data-fr="Boutique de Produits">Shop <span class="text-brand">Products</span></h2>
-            
-            <!-- Filter Tabs -->
-            <div class="flex justify-center gap-4 mb-8">
-                <button onclick="filterProducts('all')" id="filter-all" class="text-sm font-bold uppercase border-b-2 border-brand pb-1 text-gray-900 dark:text-white" data-fr="Tout">All</button>
-                <button onclick="filterProducts('tire')" id="filter-tire" class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors pb-1 border-b-2 border-transparent" data-fr="Pneus">Tires</button>
-                <button onclick="filterProducts('fuel')" id="filter-fuel" class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors pb-1 border-b-2 border-transparent" data-fr="Essence">Fuel</button>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4" id="product-grid">
-                <!-- Products injected via JS -->
+            <div class="max-w-5xl mx-auto bg-gray-50 dark:bg-dark-surface rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 flex flex-col md:flex-row">
+                <!-- Image Side -->
+                <div class="md:w-2/5 relative min-h-[300px]">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1000&auto=format&fit=crop');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                        <div class="text-white">
+                            <i class="fas fa-tags text-brand text-3xl mb-2"></i>
+                            <h3 class="font-bold text-xl uppercase" data-fr="Garantie du Meilleur Prix">Best Price Guarantee</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Side -->
+                <div class="md:w-3/5 p-8 md:p-12 flex flex-col justify-center">
+                    <span class="text-brand font-bold uppercase tracking-wider mb-2" data-fr="Achetez avec Pneus Empire">Shop With Pneus Empire</span>
+                    <h2 class="font-display font-black text-3xl md:text-4xl uppercase mb-4 text-gray-900 dark:text-white" data-fr="Vente de Pneus & Jantes">New Tires & Rims</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6" data-fr="Nous offrons une sélection massive de pneus et de jantes de qualité supérieure pour toutes les marques et modèles de véhicules. Comme les tailles et les prix du marché varient, veuillez nous contacter directement pour obtenir le devis personnalisé le plus précis et compétitif.">
+                        We carry a massive selection of top-tier tires and rims for all vehicle makes and models. Because sizing and market pricing vary, please reach out to us directly for the most accurate and competitive custom quote.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:2639932537" class="bg-brand text-black font-black py-3 px-6 rounded hover:bg-white transition-colors text-center shadow-lg">
+                            <i class="fas fa-phone mr-2"></i> <span data-fr="APPELER POUR UN DEVIS">CALL FOR A QUOTE</span>
+                        </a>
+                        <button onclick="toggleQuoteModal()" class="border-2 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-bold py-3 px-6 rounded hover:border-brand hover:text-brand transition-colors text-center">
+                            <i class="fas fa-envelope mr-2"></i> <span data-fr="NOUS CONTACTER">CONTACT US</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- Tire & Rim Quote Modal -->
+    <div id="quote-modal" class="fixed inset-0 z-[60] hidden flex items-center justify-center bg-black/80 p-4 overflow-y-auto backdrop-blur-sm">
+        <div class="bg-white dark:bg-dark-card w-full max-w-3xl rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 relative my-8">
+            <!-- Close Button -->
+            <button onclick="closeQuoteModal()" class="absolute top-3 right-3 w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-brand hover:bg-white dark:hover:bg-gray-700 flex items-center justify-center text-xl z-20 shadow-lg border border-gray-300 dark:border-gray-600 transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Form Content -->
+            <div id="quote-form-content" class="p-8">
+                <h3 class="text-3xl font-black font-display uppercase mb-2" data-fr="Demande de Devis">Request a Quote</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm" data-fr="Veuillez fournir autant de détails que possible pour que nous puissions vous donner le prix le plus précis pour vos nouveaux pneus ou jantes.">
+                    Please provide as much detail as possible so we can give you the most accurate pricing for your new tires or rims.
+                </p>
+
+                <form id="quote-form" onsubmit="submitQuoteForm(event)" class="space-y-5">
+                    <!-- Personal Info -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Prénom & Nom">Full Name *</label>
+                            <input type="text" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Téléphone">Phone Number *</label>
+                            <input type="tel" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Courriel">Email Address *</label>
+                            <input type="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-200 dark:border-gray-700">
+
+                    <!-- Vehicle Info -->
+                    <div>
+                        <h4 class="font-bold mb-3 text-brand text-sm uppercase" data-fr="Détails du Véhicule">Vehicle Details</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Année">Year *</label>
+                                <input type="text" placeholder="2022" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Marque">Make *</label>
+                                <input type="text" placeholder="Toyota" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Modèle">Model *</label>
+                                <input type="text" placeholder="Camry" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Version (Optionnel)">Trim (Optional)</label>
+                                <input type="text" placeholder="SE, XLE, etc." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-200 dark:border-gray-700">
+
+                    <!-- Product Needs -->
+                    <div>
+                        <h4 class="font-bold mb-3 text-brand text-sm uppercase" data-fr="Ce que vous cherchez">What are you looking for?</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Type de Produit">Product Type *</label>
+                                <select required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none text-gray-900 dark:text-white">
+                                    <option value="" disabled selected>Select an option...</option>
+                                    <option value="tires">Tires Only</option>
+                                    <option value="rims">Rims Only</option>
+                                    <option value="package">Tire & Rim Package</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Saison / Type">Season / Type</label>
+                                <select class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none text-gray-900 dark:text-white">
+                                    <option value="" disabled selected>Select season...</option>
+                                    <option value="winter">Winter / Snow</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="all-season">All-Season</option>
+                                    <option value="all-weather">All-Weather (Winter Approved)</option>
+                                    <option value="all-terrain">All-Terrain / Mud</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Taille de pneu actuelle (si connue)">Current Tire Size (If Known)</label>
+                                <input type="text" placeholder="e.g. 225/45R17" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Questions ou Demandes Spéciales">Questions or Special Requests</label>
+                        <textarea rows="3" placeholder="Any specific brand preference, budget constraints, etc." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand text-black font-black py-4 rounded hover:bg-white transition-colors shadow-lg mt-4 text-lg" data-fr="OBTENIR MON DEVIS">
+                        GET MY QUOTE
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Overlay inside Modal -->
+            <div id="quote-success" class="hidden p-12 text-center flex-col items-center justify-center min-h-[400px]">
+                <i class="fas fa-check-circle text-7xl text-brand mb-6"></i>
+                <h3 class="text-3xl font-bold mb-3" data-fr="Demande Envoyée !">Request Sent!</h3>
+                <p class="text-gray-600 dark:text-gray-300 text-lg mb-8" data-fr="Merci ! Murray a reçu vos informations de véhicule et examinera les prix actuels du marché. Il vous contactera sous peu avec un devis personnalisé.">
+                    Thank you! Murray has received your vehicle info and will review current market pricing. He will reach out shortly with a custom quote.
+                </p>
+                <button onclick="closeQuoteModal()" class="border-2 border-brand text-brand hover:bg-brand hover:text-black font-bold px-8 py-3 rounded transition-colors">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer / Contact -->
     <footer id="contact" class="bg-black text-white pt-20 pb-10 border-t border-gray-800">
@@ -700,57 +831,28 @@
             document.getElementById('rim-success').classList.remove('hidden');
         }
 
-        // --- Products Logic with Filtering ---
-        const products = [
-            { name: "VP Racing Octanium", price: "29.99", img: "fas fa-flask", type: "fuel" },
-            { name: "VP Small Engine Fuel", price: "14.99", img: "fas fa-gas-pump", type: "fuel" },
-            { name: "205/55/R17 Tire", price: "123.49", img: "fas fa-circle-notch", type: "tire" },
-            { name: "205/60/R15 Tire", price: "89.99", img: "fas fa-circle-notch", type: "tire" },
-            { name: "205/60/R16 Tire", price: "100.09", img: "fas fa-circle-notch", type: "tire" },
-            { name: "245/40/R20 Tire", price: "161.99", img: "fas fa-circle-notch", type: "tire" },
-            { name: "215/45/R18 Tire", price: "124.99", img: "fas fa-circle-notch", type: "tire" },
-            { name: "215/70/R15 Tire", price: "116.99", img: "fas fa-circle-notch", type: "tire" },
-            { name: "225/70/R16 Tire", price: "129.99", img: "fas fa-circle-notch", type: "tire" },
-            { name: "245/50/R20 Tire", price: "179.99", img: "fas fa-circle-notch", type: "tire" }
-        ];
-
-        const productGrid = document.getElementById('product-grid');
-
-        function filterProducts(filterType) {
-            // Update Tab Styling
-            const tabs = ['all', 'tire', 'fuel'];
-            tabs.forEach(tab => {
-                const btn = document.getElementById(`filter-${tab}`);
-                if(tab === filterType) {
-                    btn.classList.add('border-brand', 'text-gray-900', 'dark:text-white');
-                    btn.classList.remove('border-transparent', 'text-gray-500');
-                } else {
-                    btn.classList.remove('border-brand', 'text-gray-900', 'dark:text-white');
-                    btn.classList.add('border-transparent', 'text-gray-500');
-                }
-            });
-
-            // Re-render Products
-            productGrid.innerHTML = '';
-            const filtered = products.filter(p => filterType === 'all' || p.type === filterType);
-            
-            filtered.forEach(product => {
-                const el = document.createElement('div');
-                el.className = 'bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 rounded-lg p-4 text-center hover:shadow-neon transition-all duration-300 group';
-                el.innerHTML = `
-                    <div class="h-32 flex items-center justify-center mb-4 text-gray-300 dark:text-gray-700 group-hover:text-brand transition-colors">
-                        <i class="${product.img} text-6xl"></i>
-                    </div>
-                    <h4 class="font-bold text-sm mb-2 text-gray-900 dark:text-white line-clamp-1">${product.name}</h4>
-                    <p class="font-black text-brand text-lg">C$${product.price}</p>
-                    <button class="mt-3 w-full py-2 bg-black dark:bg-white text-white dark:text-black text-xs font-bold uppercase rounded hover:opacity-80">Quick View</button>
-                `;
-                productGrid.appendChild(el);
-            });
+        // --- Quote Form Modal Logic ---
+        function toggleQuoteModal() {
+            document.getElementById('quote-modal').classList.toggle('hidden');
         }
-        
-        // Initialize Products
-        filterProducts('all');
+
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').classList.add('hidden');
+            // Reset modal after transition
+            setTimeout(() => {
+                document.getElementById('quote-form-content').classList.remove('hidden');
+                document.getElementById('quote-success').classList.add('hidden');
+                document.getElementById('quote-form').reset();
+            }, 300);
+        }
+
+        function submitQuoteForm(e) {
+            e.preventDefault();
+            // Hide form and show success state
+            document.getElementById('quote-form-content').classList.add('hidden');
+            document.getElementById('quote-success').classList.remove('hidden');
+            document.getElementById('quote-success').classList.add('flex');
+        }
 
         // --- Chatbot Logic ---
         let chatStep = 0;
