@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Geo-SEO specifically targeting Murray -->
+    <meta name="description" content="Pneus Empire - Montreal's premier mobile tire and roadside assistance. Locally owned and operated by Murray. We come to you 24/7!">
+    <meta name="keywords" content="Murray tire repair Montreal, Pneus Empire, Mobile Tire Service, Mag repair Murray, Roadside Assistance Montreal">
+    <meta name="author" content="Murray at Pneus Empire">
     <title>Pneus Empire | Mobile Tire Service & Roadside Assistance Montreal</title>
     
     <!-- Tailwind CSS -->
@@ -24,9 +28,9 @@
                 extend: {
                     colors: {
                         brand: {
-                            DEFAULT: '#39FF14', /* Neon Green */
-                            dark: '#2ecc10',
-                            light: '#4dff29'
+                            DEFAULT: '#00C853', /* Adjusted to a more solid, trusted green shade */
+                            dark: '#009624',
+                            light: '#5efc82'
                         },
                         dark: {
                             bg: '#0a0a0a',
@@ -39,7 +43,16 @@
                         display: ['Montserrat', 'sans-serif'],
                     },
                     boxShadow: {
-                        'neon': '0 0 10px rgba(57, 255, 20, 0.5), 0 0 20px rgba(57, 255, 20, 0.3)',
+                        'neon': '0 0 10px rgba(0, 200, 83, 0.5), 0 0 20px rgba(0, 200, 83, 0.3)',
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
                     }
                 }
             }
@@ -47,28 +60,20 @@
     </script>
 
     <style>
-        /* Custom Utilities */
-        .text-glow {
-            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
-        }
-        
+        .text-glow { text-shadow: 0 0 10px rgba(0, 200, 83, 0.4); }
         .hero-bg {
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-size: cover; background-position: center; background-attachment: fixed;
         }
-
-        /* Tire Tread Pattern Background for Dark Mode */
         .tread-pattern {
             background-color: #0a0a0a;
             background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2h-20v2h20v2h-20v2h20v2h-20v2h20v2h-20v2h20v2H22V20.5h-2z' fill='%231a1a1a' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
+        body { transition: background-color 0.3s, color 0.3s; }
         
-        /* Smooth transition for theme toggle */
-        body {
-            transition: background-color 0.3s, color 0.3s;
-        }
+        /* Hide scrollbar for brands */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-dark-bg dark:text-white dark:tread-pattern flex flex-col min-h-screen">
@@ -79,24 +84,29 @@
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <span class="font-display font-black text-xl tracking-tighter italic uppercase">Pneus <span class="text-brand dark:text-brand">Empire</span></span>
+                    <span class="font-display font-black text-xl tracking-tighter italic uppercase text-white" data-fr="PNEUS EMPIRE">Pneus Empire</span>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="font-bold hover:text-brand transition-colors">Home</a>
-                    <a href="#services" class="font-bold hover:text-brand transition-colors">Services</a>
-                    <a href="#pricing" class="font-bold hover:text-brand transition-colors">Pricing</a>
-                    <a href="#products" class="font-bold hover:text-brand transition-colors">Products</a>
-                    <a href="#contact" class="font-bold hover:text-brand transition-colors">Contact</a>
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#home" class="font-bold hover:text-brand transition-colors" data-fr="Accueil">Home</a>
+                    <a href="#services" class="font-bold hover:text-brand transition-colors" data-fr="Services">Services</a>
+                    <a href="#rim-repair" class="font-bold hover:text-brand transition-colors" data-fr="Réparation Mags">Mag Repair</a>
+                    <a href="#products" class="font-bold hover:text-brand transition-colors" data-fr="Boutique">Shop</a>
+                    <a href="#contact" class="font-bold hover:text-brand transition-colors" data-fr="Contact">Contact</a>
                 </div>
 
                 <!-- Right Side Actions -->
                 <div class="flex items-center gap-4">
-                    <!-- Call Button (Always Visible) -->
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLang()" class="font-bold text-sm bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded hover:text-brand transition-colors">
+                        <i class="fas fa-globe mr-1"></i><span id="lang-text">EN</span>
+                    </button>
+
+                    <!-- Call Button -->
                     <a href="tel:2639932537" class="bg-brand hover:bg-brand-light text-black font-black py-2 px-4 rounded-full shadow-neon transform hover:scale-105 transition-all flex items-center gap-2">
                         <i class="fas fa-phone-alt"></i>
-                        <span class="hidden sm:inline">CALL NOW</span>
+                        <span class="hidden sm:inline" data-fr="APPELER">CALL NOW</span>
                     </a>
 
                     <!-- Mobile Menu Button -->
@@ -110,11 +120,11 @@
         <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#home" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
-                <a href="#services" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Services</a>
-                <a href="#pricing" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Pricing</a>
-                <a href="#products" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Products</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+                <a href="#home" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Accueil">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Services">Services</a>
+                <a href="#rim-repair" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Réparation Mags">Mag Repair</a>
+                <a href="#products" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Boutique">Shop</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -122,19 +132,19 @@
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20">
         <div class="absolute inset-0 bg-black/60 z-0"></div> <!-- Overlay -->
-        <div class="container mx-auto px-4 z-10 text-center text-white">
-            <h2 class="text-brand font-bold tracking-widest mb-4 animate-pulse">24/7 ROADSIDE ASSISTANCE</h2>
+        <div class="container mx-auto px-4 z-10 text-center text-white mt-10">
+            <h2 class="text-brand font-bold tracking-widest mb-4 animate-pulse uppercase" data-fr="Assistance Routière 24/7">24/7 ROADSIDE ASSISTANCE</h2>
             <h1 class="font-display font-black text-5xl md:text-7xl lg:text-8xl mb-6 uppercase italic leading-tight">
-                The Shop <br> Comes To <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand to-green-600">You</span>
+                <span data-fr="L'Atelier Vient À">The Shop <br> Comes To</span> <span class="text-white" data-fr="Vous">You</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200 font-light">
-                Serving the Greater Montreal Area. Flat tires, dead batteries, or new installs—we handle it all on the spot.
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto text-gray-200 font-light" data-fr="Au service de la grande région de Montréal. Appelez Murray aujourd'hui !">
+                Serving the Greater Montreal Area. Locally operated by Murray. Flat tires, dead batteries, or new installs—we handle it all on the spot.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:2639932537" class="bg-brand text-black font-black text-lg py-4 px-8 rounded hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(57,255,20,0.6)]">
-                    <i class="fas fa-phone mr-2"></i> GET HELP NOW
+                <a href="tel:2639932537" class="bg-brand text-black font-black text-lg py-4 px-8 rounded hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(0,200,83,0.6)]">
+                    <i class="fas fa-phone mr-2"></i> <span data-fr="OBTENIR DE L'AIDE">GET HELP NOW</span>
                 </a>
-                <a href="#pricing" class="bg-transparent border-2 border-white text-white font-bold text-lg py-4 px-8 rounded hover:bg-white hover:text-black transition-all">
+                <a href="#services" class="bg-transparent border-2 border-white text-white font-bold text-lg py-4 px-8 rounded hover:bg-white hover:text-black transition-all" data-fr="VOIR LES PRIX">
                     VIEW PRICING
                 </a>
             </div>
@@ -143,64 +153,113 @@
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-center">
                 <div class="bg-black/50 backdrop-blur p-4 rounded-lg border border-gray-700">
                     <i class="fas fa-clock text-brand text-2xl mb-2"></i>
-                    <p class="font-bold">24/7 Service</p>
+                    <p class="font-bold" data-fr="Service 24/7">24/7 Service</p>
                 </div>
                 <div class="bg-black/50 backdrop-blur p-4 rounded-lg border border-gray-700">
                     <i class="fas fa-map-marker-alt text-brand text-2xl mb-2"></i>
-                    <p class="font-bold">Montreal Wide</p>
+                    <p class="font-bold" data-fr="Montréal et Environs">Montreal Wide</p>
                 </div>
                 <div class="bg-black/50 backdrop-blur p-4 rounded-lg border border-gray-700">
                     <i class="fas fa-tachometer-alt text-brand text-2xl mb-2"></i>
-                    <p class="font-bold">Fast Response</p>
+                    <p class="font-bold" data-fr="Réponse Rapide">Fast Response</p>
                 </div>
                 <div class="bg-black/50 backdrop-blur p-4 rounded-lg border border-gray-700">
                     <i class="fas fa-certificate text-brand text-2xl mb-2"></i>
-                    <p class="font-bold">Certified Pros</p>
+                    <p class="font-bold" data-fr="Assuré et Certifié">Fully Licensed</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Trust & Certifications Bar -->
+    <section class="py-8 bg-brand dark:bg-brand-dark text-black">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-8 text-center font-bold">
+            <div class="flex items-center gap-3 text-lg">
+                <i class="fas fa-shield-alt text-2xl"></i>
+                <span data-fr="Entièrement Licencié et Assuré">Fully Licensed and Insured</span>
+            </div>
+            <div class="hidden md:block w-2 h-2 bg-black rounded-full"></div>
+            <div class="flex items-center gap-3 text-lg">
+                <i class="fas fa-users text-2xl"></i>
+                <span data-fr="Fier membre de la FCEI (CFIB)">Proud member of Canadian Independent Businesses (CFIB)</span>
+            </div>
+            <div class="hidden md:block w-2 h-2 bg-black rounded-full"></div>
+            <div class="flex items-center gap-3 text-lg">
+                <i class="fas fa-award text-2xl"></i>
+                <span data-fr="Techniciens Certifiés TIA">TIA Certified Technicians</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Carousel -->
+    <section class="py-6 bg-white dark:bg-gray-900 overflow-hidden border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 mb-4 text-center">
+            <p class="text-sm font-bold text-gray-500 uppercase tracking-wider" data-fr="Nous Installons Les Meilleures Marques">We Supply & Install Top Brands</p>
+        </div>
+        <div class="flex whitespace-nowrap overflow-hidden relative">
+            <div class="animate-marquee flex gap-12 items-center text-3xl md:text-4xl font-black text-gray-300 dark:text-gray-700 uppercase">
+                <span>Michelin</span> <span>•</span>
+                <span>Goodyear</span> <span>•</span>
+                <span>Pirelli</span> <span>•</span>
+                <span>Bridgestone</span> <span>•</span>
+                <span>Continental</span> <span>•</span>
+                <span>Toyo Tires</span> <span>•</span>
+                <span>Yokohama</span> <span>•</span>
+                <span>Hankook</span> <span>•</span>
+                <!-- Duplicate for infinite scroll -->
+                <span>Michelin</span> <span>•</span>
+                <span>Goodyear</span> <span>•</span>
+                <span>Pirelli</span> <span>•</span>
+                <span>Bridgestone</span> <span>•</span>
+                <span>Continental</span> <span>•</span>
+                <span>Toyo Tires</span> <span>•</span>
+                <span>Yokohama</span> <span>•</span>
+                <span>Hankook</span>
+            </div>
+        </div>
+    </section>
+
     <!-- About / Why Us -->
-    <section class="py-20 bg-white dark:bg-dark-surface">
+    <section class="py-20 bg-gray-50 dark:bg-dark-surface">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="font-display font-black text-4xl uppercase mb-4">Why Choose <span class="text-brand">Pneus Empire?</span></h2>
+                <h2 class="font-display font-black text-4xl uppercase mb-4" data-fr="Pourquoi Choisir Pneus Empire?">Why Choose <span class="text-brand">Pneus Empire?</span></h2>
                 <div class="w-24 h-1 bg-brand mx-auto"></div>
-                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    What if getting your tires changed didn't mean booking time off work or waiting in long line-ups? We are changing tire services forever.
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-fr="Dirigé par Murray. Qu'est-ce que ce serait de ne pas attendre en file?">
+                    Led by Murray and our dedicated team. What if getting your tires changed didn't mean booking time off work or waiting in long line-ups? We are changing tire services forever.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand dark:hover:border-brand transition-all group">
+                <div class="p-8 rounded-2xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand transition-all group shadow-md">
                     <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand transition-colors">
                         <i class="fas fa-truck text-brand text-2xl group-hover:text-black"></i>
                     </div>
-                    <h3 class="font-bold text-xl mb-3 uppercase">We Come To You</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <h3 class="font-bold text-xl mb-3 uppercase" data-fr="Nous Venons À Vous">We Come To You</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-fr="Notre service mobile visite tout lieu de la région de Montréal.">
                         Our mobile service visits any location in the Greater Montreal Area. Home, office, or roadside.
                     </p>
                 </div>
                 <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand dark:hover:border-brand transition-all group">
+                <div class="p-8 rounded-2xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand transition-all group shadow-md">
                     <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand transition-colors">
                         <i class="fas fa-bolt text-brand text-2xl group-hover:text-black"></i>
                     </div>
-                    <h3 class="font-bold text-xl mb-3 uppercase">Outstanding Service</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
+                    <h3 class="font-bold text-xl mb-3 uppercase" data-fr="Service Exceptionnel">Outstanding Service</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-fr="Notre priorité est de prendre soin de nos clients.">
                         Our top priority is taking care of cars and our clients. Fast and efficient same-day service available.
                     </p>
                 </div>
                 <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand dark:hover:border-brand transition-all group">
+                <div class="p-8 rounded-2xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800 hover:border-brand transition-all group shadow-md relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand text-black text-xs font-bold px-3 py-1 rounded-bl-lg">TIA Verified</div>
                     <div class="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand transition-colors">
-                        <i class="fas fa-user-shield text-brand text-2xl group-hover:text-black"></i>
+                        <i class="fas fa-medal text-brand text-2xl group-hover:text-black"></i>
                     </div>
-                    <h3 class="font-bold text-xl mb-3 uppercase">Certified Techs</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Years of experience servicing vehicles. Flat repair, installation, rotation and more.
+                    <h3 class="font-bold text-xl mb-3 uppercase" data-fr="Techniciens Certifiés">Certified Techs</h3>
+                    <p class="text-gray-600 dark:text-gray-400" data-fr="Tous nos techniciens sont certifiés par la TIA.">
+                        All our technicians are certified by the TIA (Tire Industry Association). Years of experience servicing vehicles.
                     </p>
                 </div>
             </div>
@@ -208,89 +267,87 @@
     </section>
 
     <!-- Services & Pricing -->
-    <section id="services" class="py-20 bg-gray-100 dark:bg-dark-bg">
+    <section id="services" class="py-20 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <span class="text-brand font-bold uppercase tracking-wide">Our Pricing</span>
-                <h2 class="font-display font-black text-4xl uppercase mb-4 text-gray-900 dark:text-white">Roadside & Tire Services</h2>
+                <span class="text-brand font-bold uppercase tracking-wide" data-fr="Nos Tarifs">Our Pricing</span>
+                <h2 class="font-display font-black text-4xl uppercase mb-4 text-gray-900 dark:text-white" data-fr="Services Routiers & Pneus">Roadside & Tire Services</h2>
                 <div class="w-24 h-1 bg-brand mx-auto"></div>
             </div>
 
             <!-- Toggle Switch for Categories -->
-            <div class="flex justify-center mb-10">
-                <div class="bg-white dark:bg-dark-surface p-1 rounded-full border border-gray-200 dark:border-gray-700 inline-flex">
-                    <button onclick="showPricing('roadside')" id="btn-roadside" class="px-6 py-2 rounded-full font-bold transition-all bg-brand text-black shadow-lg">Roadside</button>
-                    <button onclick="showPricing('tires')" id="btn-tires" class="px-6 py-2 rounded-full font-bold transition-all text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Tire Services</button>
+            <div class="flex flex-wrap justify-center mb-10 gap-2">
+                <div class="bg-gray-100 dark:bg-dark-surface p-1 rounded-full border border-gray-200 dark:border-gray-700 inline-flex">
+                    <button onclick="showPricing('roadside')" id="btn-roadside" class="px-6 py-2 rounded-full font-bold transition-all bg-brand text-black shadow-lg" data-fr="Routier">Roadside</button>
+                    <button onclick="showPricing('tires')" id="btn-tires" class="px-6 py-2 rounded-full font-bold transition-all text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" data-fr="Pneus">Tire Services</button>
                 </div>
             </div>
 
             <!-- Roadside Content -->
             <div id="roadside-content" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dynamic generation via JS would be cleaner, but hardcoding for clarity here -->
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">One-Time Service Call</h3>
+                        <h3 class="font-bold text-xl" data-fr="Appel de Service">One-Time Service Call</h3>
                         <span class="font-display font-black text-2xl text-brand">$69.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Base charge for service call deployment.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Frais de base pour le déploiement.">Base charge for service call deployment.</p>
                 </div>
 
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">Battery Boost</h3>
+                        <h3 class="font-bold text-xl" data-fr="Survoltage Batterie">Battery Boost</h3>
                         <span class="font-display font-black text-2xl text-brand">$89.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Attempt to re-start vehicle. If tow required, additional charges apply.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Tentative de démarrage.">Attempt to re-start vehicle. If tow required, additional charges apply.</p>
                 </div>
 
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">Flat Tire Change</h3>
+                        <h3 class="font-bold text-xl" data-fr="Changement Pneu Crevé">Flat Tire Change</h3>
                         <span class="font-display font-black text-2xl text-brand">$89.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Install spare tire or patch. Spare must be in safe condition.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Installation du pneu de secours.">Install spare tire or patch. Spare must be in safe condition.</p>
                 </div>
 
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">Lockout Service</h3>
+                        <h3 class="font-bold text-xl" data-fr="Déverrouillage">Lockout Service</h3>
                         <span class="font-display font-black text-2xl text-brand">$89.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Access vehicle using lock-out equipment. Damages are customer responsibility.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Accès au véhicule.">Access vehicle using lock-out equipment. Damages are customer responsibility.</p>
                 </div>
 
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">Fuel Delivery</h3>
+                        <h3 class="font-bold text-xl" data-fr="Livraison d'Essence">Fuel Delivery</h3>
                         <span class="font-display font-black text-2xl text-brand">$89.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Fuel cost extra. Diesel subject to availability. No propane.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Coût du carburant en sus.">Fuel cost extra. Diesel subject to availability. No propane.</p>
                 </div>
 
-                <div class="bg-white dark:bg-dark-surface p-6 rounded-xl shadow-lg border-l-4 border-brand">
+                <div class="bg-gray-50 dark:bg-dark-surface p-6 rounded-xl shadow border-l-4 border-brand">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="font-bold text-xl">Vehicle Computer Report</h3>
+                        <h3 class="font-bold text-xl" data-fr="Diagnostic Ordinateur">Vehicle Computer Report</h3>
                         <span class="font-display font-black text-2xl text-brand">$75.99</span>
                     </div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Analysis of systems to identify issues.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400" data-fr="Analyse des systèmes.">Analysis of systems to identify issues.</p>
                 </div>
             </div>
 
-            <!-- Tires Content (Hidden by default) -->
+            <!-- Tires Content -->
             <div id="tires-content" class="hidden space-y-8">
-                
-                <!-- Section 1: Swap (On Rims) -->
-                <div class="bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-xl">
+                <!-- Swap -->
+                <div class="bg-gray-50 dark:bg-dark-surface rounded-2xl overflow-hidden shadow-xl">
                     <div class="bg-gray-900 text-white p-4 px-6 flex justify-between items-center">
-                        <h3 class="font-bold text-lg"><i class="fas fa-sync mr-2 text-brand"></i> Tire Change (Already on Rims)</h3>
-                        <span class="text-sm text-gray-400">* Balancing Not Included</span>
+                        <h3 class="font-bold text-lg"><i class="fas fa-sync mr-2 text-brand"></i> <span data-fr="Changement (Sur Jantes)">Tire Change (Already on Rims)</span></h3>
+                        <span class="text-sm text-gray-400" data-fr="*Balancement Non Inclus">* Balancing Not Included</span>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
-                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs uppercase">
+                            <thead class="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs uppercase">
                                 <tr>
-                                    <th class="px-6 py-3">Size / Type</th>
-                                    <th class="px-6 py-3 text-right">Price</th>
+                                    <th class="px-6 py-3" data-fr="Taille / Type">Size / Type</th>
+                                    <th class="px-6 py-3 text-right" data-fr="Prix">Price</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
@@ -311,19 +368,18 @@
                     </div>
                 </div>
 
-                <!-- Section 2: Install (Mounting & Balancing) -->
-                <div class="bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-xl">
+                <!-- Install -->
+                <div class="bg-gray-50 dark:bg-dark-surface rounded-2xl overflow-hidden shadow-xl">
                     <div class="bg-gray-900 text-white p-4 px-6 flex justify-between items-center">
-                        <h3 class="font-bold text-lg"><i class="fas fa-tools mr-2 text-brand"></i> Installation (Mounting & Balancing)</h3>
-                        <span class="text-sm text-gray-400">Complete Service</span>
+                        <h3 class="font-bold text-lg"><i class="fas fa-tools mr-2 text-brand"></i> <span data-fr="Installation Complète">Installation (Mounting & Balancing)</span></h3>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left">
-                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xs uppercase">
+                            <thead class="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs uppercase">
                                 <tr>
-                                    <th class="px-6 py-3">Size</th>
-                                    <th class="px-6 py-3 text-right">Standard</th>
-                                    <th class="px-6 py-3 text-right">Run-Flat / Low Profile (+Fee)</th>
+                                    <th class="px-6 py-3" data-fr="Taille">Size</th>
+                                    <th class="px-6 py-3 text-right" data-fr="Standard">Standard</th>
+                                    <th class="px-6 py-3 text-right" data-fr="Run-Flat (+Frais)">Run-Flat / Low Profile (+Fee)</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
@@ -347,54 +403,140 @@
                                     <td class="px-6 py-4 text-right font-bold text-brand">$140.99</td>
                                     <td class="px-6 py-4 text-right text-gray-500">+ $14.99</td>
                                 </tr>
-                                <tr>
-                                    <td class="px-6 py-4">Pickup Trucks & Cargo Vans</td>
-                                    <td class="px-6 py-4 text-right font-bold text-brand">$140.99</td>
-                                    <td class="px-6 py-4 text-right text-gray-500">-</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4">Heavy Trucks / Cube Vans</td>
-                                    <td class="px-6 py-4 text-right font-bold text-brand">$199.99</td>
-                                    <td class="px-6 py-4 text-right text-gray-500">-</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Extras -->
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="bg-brand/10 p-4 rounded-lg border border-brand/20">
-                        <h4 class="font-bold mb-2">Residential Service Fee</h4>
-                        <p class="text-2xl font-black text-brand">$149.99</p>
-                        <p class="text-xs mt-1">Applies to residential complete tire installation.</p>
+    <!-- Tesla & EV Specialization (NEW) -->
+    <section class="py-16 bg-gray-900 text-white relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\'%3E%3Cpath d=\'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5\'/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: center right; background-size: contain;"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/2">
+                    <h2 class="font-display font-black text-4xl uppercase mb-4 text-brand" data-fr="Spécialistes Tesla & VÉ">Tesla & EV Specialists</h2>
+                    <p class="mb-6 text-gray-300" data-fr="Nous disposons des outils et des connaissances nécessaires pour entretenir correctement les véhicules électriques.">
+                        Electric vehicles require specific care. Our team is fully equipped and trained to handle Tesla and other EV tire replacements safely and efficiently.
+                    </p>
+                    <ul class="space-y-3 font-bold">
+                        <li><i class="fas fa-check text-brand mr-2"></i> <span data-fr="Coussins de Levage Officiels Tesla">Official Tesla Lifting Pucks Used</span></li>
+                        <li><i class="fas fa-check text-brand mr-2"></i> <span data-fr="Spécifications de Couple Exactes">Exact EV Torque Specifications</span></li>
+                        <li><i class="fas fa-check text-brand mr-2"></i> <span data-fr="Expérience en Pneus à Profil Bas">Low-Profile & Acoustic Tire Experience</span></li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 bg-black/50 p-6 rounded-xl border border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-white" data-fr="Frais de Service VÉ">EV Service Fee</h3>
+                    <p class="text-brand text-3xl font-black mb-2">+$19.99</p>
+                    <p class="text-sm text-gray-400" data-fr="Applicable en raison de l'équipement de levage spécialisé et des procédures de sécurité.">Applies to Tesla and heavy EVs requiring specialized lifting pucks and safety procedures to protect the battery chassis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mag & Rim Repair (NEW) -->
+    <section id="rim-repair" class="py-20 bg-gray-100 dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand font-bold uppercase tracking-wide" data-fr="Nouveau Service">New Service</span>
+                <h2 class="font-display font-black text-4xl uppercase mb-4" data-fr="Réparation Mags/Jantes & Programme de Prêt">Mag/Rim Repair & Loaner Program</h2>
+                <div class="w-24 h-1 bg-brand mx-auto"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-fr="Ne restez pas bloqué avec une jante fissurée. Nous gérons tout le processus de la route à la réparation complète.">
+                    Don't get stranded by a cracked rim. We manage the entire process from the road to the fully repaired wheel.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Loaner Program Info -->
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow border border-gray-200 dark:border-gray-800">
+                        <h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-exchange-alt text-brand"></i> <span data-fr="Comment Fonctionne Le Prêt">How The Loaner Program Works</span></h3>
+                        <ol class="list-decimal pl-5 space-y-3 text-gray-600 dark:text-gray-400">
+                            <li><strong class="text-gray-900 dark:text-white" data-fr="Évaluation Mobile :">Mobile Assessment:</strong> We come to your location to inspect the cracked or damaged rim.</li>
+                            <li><strong class="text-gray-900 dark:text-white" data-fr="Installation du Prêt :">Loaner Installation:</strong> We install a temporary loaner tire/rim so you can keep driving.</li>
+                            <li><strong class="text-gray-900 dark:text-white" data-fr="Réparation de la Jante :">Rim Repair:</strong> Your broken rim is sent to our specialized repair facility.</li>
+                            <li><strong class="text-gray-900 dark:text-white" data-fr="Retour & Échange :">Return & Swap:</strong> Once fixed, we return to install your original repaired rim and take back the loaner.</li>
+                        </ol>
                     </div>
-                    <div class="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg">
-                        <h4 class="font-bold mb-2">Extras</h4>
-                        <ul class="text-sm space-y-1">
-                            <li class="flex justify-between"><span>Grinding/Cleaning:</span> <span class="font-bold">$14.99</span></li>
-                            <li class="flex justify-between"><span>Valve Replacement:</span> <span class="font-bold">$9.99</span></li>
-                            <li class="flex justify-between"><span>TPMS Sensor Install:</span> <span class="font-bold">$9.99</span></li>
-                            <li class="flex justify-between"><span>Tesla Lifting Puck Fee:</span> <span class="font-bold">$19.99</span></li>
-                        </ul>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 dark:bg-black p-5 rounded-xl border border-gray-200 dark:border-gray-800 text-center">
+                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-1" data-fr="Réparation de Base Mag">Basic Mag Repair</h4>
+                            <p class="text-2xl font-black text-brand">~$100</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-black p-5 rounded-xl border border-gray-200 dark:border-gray-800 text-center">
+                            <h4 class="font-bold text-gray-500 uppercase text-xs mb-1" data-fr="Coût Pneu de Base">Basic Tire Cost</h4>
+                            <p class="text-2xl font-black text-brand">~$100</p>
+                        </div>
+                        <div class="col-span-2 bg-brand/10 p-5 rounded-xl border border-brand/30 text-center">
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-1" data-fr="Frais de Dépôt & Journaliers">Deposit & Daily Charge</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400" data-fr="Un dépôt de sécurité est requis pour la roue de prêt. Des frais de location journaliers nominaux s'appliquent pendant que votre jante est en réparation.">A security deposit is required for the loaner wheel. A nominal daily rental charge applies while your rim is being repaired.</p>
+                        </div>
                     </div>
                 </div>
-                
-                <p class="text-xs text-center text-gray-500 mt-4">* All prices +tx. Prices subject to change based on specific criteria.</p>
+
+                <!-- Mag/Rim Contact Form -->
+                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 relative">
+                    <h3 class="text-2xl font-bold mb-2" data-fr="Demande de Réparation de Jante">Request Rim Repair</h3>
+                    <p class="text-sm text-gray-500 mb-6" data-fr="Remplissez ce formulaire et Murray vous contactera avec les détails.">Fill out this form and Murray will reach out with details.</p>
+                    
+                    <form id="rim-repair-form" onsubmit="submitRimForm(event)" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Prénom">First Name *</label>
+                                <input type="text" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Nom">Last Name *</label>
+                                <input type="text" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Téléphone">Phone Number *</label>
+                                <input type="tel" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Courriel">Email Address *</label>
+                                <input type="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Véhicule (Année, Marque, Modèle)">Vehicle (Year, Make, Model) *</label>
+                            <input type="text" required placeholder="e.g. 2021 Tesla Model 3" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Description du Problème">Brief Description of the Issue *</label>
+                            <textarea required rows="3" placeholder="Cracked rim hitting a pothole..." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand text-black font-bold py-3 rounded hover:bg-white transition-colors shadow-lg mt-2" data-fr="SOUMETTRE LA DEMANDE">
+                            SUBMIT REQUEST
+                        </button>
+                    </form>
+                    <!-- Success Message Overlay -->
+                    <div id="rim-success" class="hidden absolute inset-0 bg-white dark:bg-dark-card rounded-2xl flex flex-col items-center justify-center p-8 text-center border-2 border-brand z-10">
+                        <i class="fas fa-check-circle text-6xl text-brand mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2" data-fr="Demande Reçue !">Request Received!</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-fr="Murray a reçu votre demande de réparation de jante et vous contactera rapidement.">Murray has received your rim repair request and will be in touch shortly.</p>
+                        <button onclick="document.getElementById('rim-success').classList.add('hidden'); document.getElementById('rim-repair-form').reset();" class="mt-6 border border-gray-500 px-6 py-2 rounded font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Products Showcase -->
-    <section id="products" class="py-20 bg-white dark:bg-dark-surface">
+    <section id="products" class="py-20 bg-white dark:bg-dark-bg">
         <div class="container mx-auto px-4">
-            <h2 class="font-display font-black text-4xl uppercase mb-10 text-center">Shop <span class="text-brand">Products</span></h2>
+            <h2 class="font-display font-black text-4xl uppercase mb-10 text-center" data-fr="Boutique de Produits">Shop <span class="text-brand">Products</span></h2>
             
             <!-- Filter Tabs -->
             <div class="flex justify-center gap-4 mb-8">
-                <button class="text-sm font-bold uppercase border-b-2 border-brand pb-1">All</button>
-                <button class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors">Tires</button>
-                <button class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors">Fuel</button>
+                <button onclick="filterProducts('all')" id="filter-all" class="text-sm font-bold uppercase border-b-2 border-brand pb-1 text-gray-900 dark:text-white" data-fr="Tout">All</button>
+                <button onclick="filterProducts('tire')" id="filter-tire" class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors pb-1 border-b-2 border-transparent" data-fr="Pneus">Tires</button>
+                <button onclick="filterProducts('fuel')" id="filter-fuel" class="text-sm font-bold uppercase text-gray-500 hover:text-brand transition-colors pb-1 border-b-2 border-transparent" data-fr="Essence">Fuel</button>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4" id="product-grid">
@@ -409,13 +551,17 @@
             <div class="grid md:grid-cols-2 gap-12 mb-12">
                 <div>
                     <div class="flex items-center gap-3 mb-6">
-                        <span class="font-display font-bold text-xl uppercase">Pneus <span class="text-brand">Empire</span></span>
+                        <span class="font-display font-bold text-xl uppercase text-white" data-fr="PNEUS EMPIRE">Pneus Empire</span>
                     </div>
-                    <p class="text-gray-400 mb-6">
-                        Montreal's premier mobile tire and roadside assistance service. We bring the shop to you, 24/7.
+                    <p class="text-gray-400 mb-6" data-fr="Le premier service mobile de pneus et d'assistance routière de Montréal. Exploité localement par Murray.">
+                        Montreal's premier mobile tire and roadside assistance service. Locally owned and operated by Murray. We bring the shop to you.
                     </p>
                     <div class="space-y-4">
-                        <a href="tel:2639932537" class="flex items-center gap-4 text-xl font-bold hover:text-brand transition-colors">
+                        <div class="flex items-center gap-4 text-brand font-bold text-lg border border-brand/30 p-3 rounded-lg bg-brand/5 inline-flex">
+                            <i class="fas fa-clock"></i>
+                            <span data-fr="Disponible 24/7 (Frais de service après les heures normales applicables)">Available 24/7 (After-hours service fee applies)</span>
+                        </div>
+                        <a href="tel:2639932537" class="flex items-center gap-4 text-xl font-bold hover:text-brand transition-colors mt-4">
                             <div class="w-10 h-10 rounded-full bg-brand text-black flex items-center justify-center">
                                 <i class="fas fa-phone"></i>
                             </div>
@@ -427,19 +573,29 @@
                             </div>
                             info@pneusempire.ca
                         </a>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
-                                <i class="fas fa-map-pin"></i>
+                        
+                        <!-- Updated Addresses -->
+                        <div class="mt-6 space-y-3 text-sm text-gray-300">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-building mt-1 text-gray-500"></i>
+                                <div><strong class="text-white">Primary Office:</strong><br>822 Avenue Selkirk, Pointe-Claire, QC H9R 3S3</div>
                             </div>
-                            <span>814 Avenue Selkirk, Pointe-Claire, QC H9R 3S3<br><span class="text-xs text-brand">(Dispatch Center - We come to you!)</span></span>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-headset mt-1 text-gray-500"></i>
+                                <div><strong class="text-white">Dispatch Center:</strong><br>Horta Avenue, Montreal, QC</div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-tools mt-1 text-brand"></i>
+                                <div><strong class="text-brand">Service Center:</strong><br>814 Avenue Selkirk, Pointe-Claire OR <span class="italic text-white">We come to you!</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Google Maps -->
-                <div class="h-64 rounded-xl overflow-hidden border border-gray-800 shadow-neon">
+                <!-- Google Maps (Updated to 822 Selkirk approximately) -->
+                <div class="h-80 rounded-xl overflow-hidden border border-gray-800 shadow-neon">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.973410714902!2d-73.82527222384976!3d45.46788597107386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc93c0dae855555%3A0x7d6b9f2c6e6b8a8!2s814%20Av.%20Selkirk%2C%20Pointe-Claire%2C%20QC%20H9R%203S3!5e0!3m2!1sen!2sca!4v1709140000000!5m2!1sen!2sca" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.973410714902!2d-73.82527222384976!3d45.46788597107386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc93c0dae855555%3A0x7d6b9f2c6e6b8a8!2s822%20Av.%20Selkirk%2C%20Pointe-Claire%2C%20QC%20H9R%203S3!5e0!3m2!1sen!2sca!4v1709140000000!5m2!1sen!2sca" 
                         width="100%" 
                         height="100%" 
                         style="border:0;" 
@@ -459,6 +615,49 @@
             </div>
         </div>
     </footer>
+
+    <!-- AI Chatbot Widget (Targeting Murray) -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden w-80 bg-white dark:bg-dark-surface rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-4 transition-all duration-300 transform origin-bottom-right">
+            <div class="bg-brand text-black p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                        <i class="fas fa-robot text-brand"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">Empire AI Bot</h4>
+                        <p class="text-xs opacity-80" data-fr="Assistant de Murray">Murray's Assistant</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-black hover:opacity-70"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 bg-gray-50 dark:bg-black/50 space-y-4">
+                <!-- Bot Message -->
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-black text-xs mt-1"><i class="fas fa-bolt"></i></div>
+                    <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white" data-fr="Salut ! Je suis l'assistant IA de Murray. Vous avez besoin d'aide pour vos pneus, d'un devis ou d'un service d'urgence ? (Anglais/Français supporté)">
+                        Hi! I'm Murray's AI Assistant. Do you need help with tires, a quote, or emergency service? (English/French supported)
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chat-input-area" class="p-3 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-dark-surface">
+                <form onsubmit="handleChatSubmit(event)" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Type your message..." required class="flex-1 bg-gray-100 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand dark:text-white">
+                    <button type="submit" class="w-10 h-10 rounded-full bg-brand text-black flex items-center justify-center hover:bg-brand-light transition-colors shadow-lg">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Toggle Button -->
+        <button onclick="toggleChat()" class="w-16 h-16 rounded-full bg-brand text-black flex items-center justify-center shadow-[0_0_20px_rgba(0,200,83,0.5)] hover:scale-110 transition-transform">
+            <i class="fas fa-comment-dots text-3xl"></i>
+        </button>
+    </div>
 
     <!-- JavaScript logic -->
     <script>
@@ -481,28 +680,31 @@
                 roadsideContent.classList.remove('hidden');
                 tiresContent.classList.add('hidden');
                 
-                // Style Active Button
                 btnRoadside.classList.add('bg-brand', 'text-black', 'shadow-lg');
-                btnRoadside.classList.remove('text-gray-500', 'dark:text-gray-400');
+                btnRoadside.classList.remove('text-gray-500', 'dark:text-gray-400', 'bg-transparent');
                 
-                // Style Inactive Button
                 btnTires.classList.remove('bg-brand', 'text-black', 'shadow-lg');
-                btnTires.classList.add('text-gray-500', 'dark:text-gray-400');
+                btnTires.classList.add('text-gray-500', 'dark:text-gray-400', 'bg-transparent');
             } else {
                 roadsideContent.classList.add('hidden');
                 tiresContent.classList.remove('hidden');
                 
-                // Style Active Button
                 btnTires.classList.add('bg-brand', 'text-black', 'shadow-lg');
-                btnTires.classList.remove('text-gray-500', 'dark:text-gray-400');
+                btnTires.classList.remove('text-gray-500', 'dark:text-gray-400', 'bg-transparent');
                 
-                // Style Inactive Button
                 btnRoadside.classList.remove('bg-brand', 'text-black', 'shadow-lg');
-                btnRoadside.classList.add('text-gray-500', 'dark:text-gray-400');
+                btnRoadside.classList.add('text-gray-500', 'dark:text-gray-400', 'bg-transparent');
             }
         }
 
-        // --- 4. Product Data Injection ---
+        // --- Rim Repair Form Logic ---
+        function submitRimForm(e) {
+            e.preventDefault();
+            // Show success modal overlay
+            document.getElementById('rim-success').classList.remove('hidden');
+        }
+
+        // --- Products Logic with Filtering ---
         const products = [
             { name: "VP Racing Octanium", price: "29.99", img: "fas fa-flask", type: "fuel" },
             { name: "VP Small Engine Fuel", price: "14.99", img: "fas fa-gas-pump", type: "fuel" },
@@ -518,19 +720,105 @@
 
         const productGrid = document.getElementById('product-grid');
 
-        products.forEach(product => {
-            const el = document.createElement('div');
-            el.className = 'bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 rounded-lg p-4 text-center hover:shadow-neon transition-all duration-300 group';
-            el.innerHTML = `
-                <div class="h-32 flex items-center justify-center mb-4 text-gray-300 dark:text-gray-700 group-hover:text-brand transition-colors">
-                    <i class="${product.img} text-6xl"></i>
+        function filterProducts(filterType) {
+            // Update Tab Styling
+            const tabs = ['all', 'tire', 'fuel'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`filter-${tab}`);
+                if(tab === filterType) {
+                    btn.classList.add('border-brand', 'text-gray-900', 'dark:text-white');
+                    btn.classList.remove('border-transparent', 'text-gray-500');
+                } else {
+                    btn.classList.remove('border-brand', 'text-gray-900', 'dark:text-white');
+                    btn.classList.add('border-transparent', 'text-gray-500');
+                }
+            });
+
+            // Re-render Products
+            productGrid.innerHTML = '';
+            const filtered = products.filter(p => filterType === 'all' || p.type === filterType);
+            
+            filtered.forEach(product => {
+                const el = document.createElement('div');
+                el.className = 'bg-gray-50 dark:bg-dark-card border border-gray-200 dark:border-gray-800 rounded-lg p-4 text-center hover:shadow-neon transition-all duration-300 group';
+                el.innerHTML = `
+                    <div class="h-32 flex items-center justify-center mb-4 text-gray-300 dark:text-gray-700 group-hover:text-brand transition-colors">
+                        <i class="${product.img} text-6xl"></i>
+                    </div>
+                    <h4 class="font-bold text-sm mb-2 text-gray-900 dark:text-white line-clamp-1">${product.name}</h4>
+                    <p class="font-black text-brand text-lg">C$${product.price}</p>
+                    <button class="mt-3 w-full py-2 bg-black dark:bg-white text-white dark:text-black text-xs font-bold uppercase rounded hover:opacity-80">Quick View</button>
+                `;
+                productGrid.appendChild(el);
+            });
+        }
+        
+        // Initialize Products
+        filterProducts('all');
+
+        // --- Chatbot Logic ---
+        let chatStep = 0;
+        function toggleChat() {
+            const w = document.getElementById('chatbot-window');
+            w.classList.toggle('hidden');
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if(!msg) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            // User Message HTML
+            chatMessages.innerHTML += `
+                <div class="flex gap-2 justify-end">
+                    <div class="bg-brand text-black text-sm p-3 rounded-lg rounded-tr-none">
+                        ${msg}
+                    </div>
                 </div>
-                <h4 class="font-bold text-sm mb-2 text-gray-900 dark:text-white line-clamp-1">${product.name}</h4>
-                <p class="font-black text-brand text-lg">C$${product.price}</p>
-                <button class="mt-3 w-full py-2 bg-black dark:bg-white text-white dark:text-black text-xs font-bold uppercase rounded hover:opacity-80">Quick View</button>
             `;
-            productGrid.appendChild(el);
-        });
+            input.value = '';
+
+            // Simulate Bot Response routing to Murray
+            setTimeout(() => {
+                let botReply = "I've sent your request directly to Murray. He will review it and contact you shortly. Please leave your phone number if you haven't already.";
+                if(currentLang === 'fr') {
+                    botReply = "J'ai envoyé votre demande directement à Murray. Il l'examinera et vous contactera sous peu. Veuillez laisser votre numéro de téléphone si ce n'est pas déjà fait.";
+                }
+                
+                chatMessages.innerHTML += `
+                    <div class="flex gap-2">
+                        <div class="w-6 h-6 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-black text-xs mt-1"><i class="fas fa-check"></i></div>
+                        <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white border border-brand/50">
+                            ${botReply}
+                        </div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // --- Simple Bilingual (EN/FR) Logic ---
+        let currentLang = 'en';
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            
+            // Switch Text elements marked with data-fr
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                // Save original English text if not saved yet
+                if (!el.dataset.en) el.dataset.en = el.innerHTML;
+                
+                // Swap content based on language
+                el.innerHTML = currentLang === 'fr' ? el.dataset.fr : el.dataset.en;
+            });
+
+            // Update Toggle Button UI
+            document.getElementById('lang-text').innerText = currentLang === 'en' ? 'EN' : 'FR';
+        }
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
