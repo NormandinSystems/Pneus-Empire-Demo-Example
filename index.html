@@ -28,9 +28,9 @@
                 extend: {
                     colors: {
                         brand: {
-                            DEFAULT: '#00C853', /* Adjusted to a more solid, trusted green shade */
-                            dark: '#009624',
-                            light: '#5efc82'
+                            DEFAULT: '#08fa0b', /* Updated Green */
+                            dark: '#06d409',
+                            light: '#3dfb3f'
                         },
                         dark: {
                             bg: '#0a0a0a',
@@ -43,7 +43,7 @@
                         display: ['Montserrat', 'sans-serif'],
                     },
                     boxShadow: {
-                        'neon': '0 0 10px rgba(0, 200, 83, 0.5), 0 0 20px rgba(0, 200, 83, 0.3)',
+                        'neon': '0 0 10px rgba(8, 250, 11, 0.5), 0 0 20px rgba(8, 250, 11, 0.3)',
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
@@ -60,9 +60,9 @@
     </script>
 
     <style>
-        .text-glow { text-shadow: 0 0 10px rgba(0, 200, 83, 0.4); }
+        .text-glow { text-shadow: 0 0 10px rgba(8, 250, 11, 0.4); }
         .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
         .tread-pattern {
@@ -131,7 +131,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-20">
-        <div class="absolute inset-0 bg-black/60 z-0"></div> <!-- Overlay -->
+        <div class="absolute inset-0 bg-black/40 z-0"></div> <!-- Overlay -->
         <div class="container mx-auto px-4 z-10 text-center text-white mt-10">
             <h2 class="text-brand font-bold tracking-widest mb-4 animate-pulse uppercase" data-fr="Assistance Routière 24/7">24/7 ROADSIDE ASSISTANCE</h2>
             <h1 class="font-display font-black text-5xl md:text-7xl lg:text-8xl mb-6 uppercase italic leading-tight">
@@ -141,7 +141,7 @@
                 Serving the Greater Montreal Area. Locally operated by Murray. Flat tires, dead batteries, or new installs—we handle it all on the spot.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:2639932537" class="bg-brand text-black font-black text-lg py-4 px-8 rounded hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(0,200,83,0.6)]">
+                <a href="tel:2639932537" class="bg-brand text-black font-black text-lg py-4 px-8 rounded hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(8,250,11,0.6)]">
                     <i class="fas fa-phone mr-2"></i> <span data-fr="OBTENIR DE L'AIDE">GET HELP NOW</span>
                 </a>
                 <a href="#services" class="bg-transparent border-2 border-white text-white font-bold text-lg py-4 px-8 rounded hover:bg-white hover:text-black transition-all" data-fr="VOIR LES PRIX">
@@ -197,24 +197,24 @@
             <p class="text-sm font-bold text-gray-500 uppercase tracking-wider" data-fr="Nous Installons Les Meilleures Marques">We Supply & Install Top Brands</p>
         </div>
         <div class="flex whitespace-nowrap overflow-hidden relative">
-            <div class="animate-marquee flex gap-12 items-center text-3xl md:text-4xl font-black text-gray-300 dark:text-gray-700 uppercase">
-                <span>Michelin</span> <span>•</span>
-                <span>Goodyear</span> <span>•</span>
-                <span>Pirelli</span> <span>•</span>
-                <span>Bridgestone</span> <span>•</span>
-                <span>Continental</span> <span>•</span>
-                <span>Toyo Tires</span> <span>•</span>
-                <span>Yokohama</span> <span>•</span>
-                <span>Hankook</span> <span>•</span>
+            <div class="animate-marquee flex gap-12 items-center text-3xl md:text-4xl font-black uppercase">
+                <img src="hd-michelin-logo-transparent-background-701751694705785cnyrhlb7bc.png" alt="Michelin" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Goodyear_Logo.jpg" alt="Goodyear" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="pirelli-vector-logo.png" alt="Pirelli" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Bridgestone-Logo.png" alt="Bridgestone" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="png-clipart-car-continental-ag-continental-automotive-systems-automotive-industry-tire-car-text-orange.png" alt="Continental" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="toyo-tires-vector-logo.png" alt="Toyo Tires" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Yokohama-logo.png" alt="Yokohama" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Hankook-logo-5500x1000-1.webp" alt="Hankook" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
                 <!-- Duplicate for infinite scroll -->
-                <span>Michelin</span> <span>•</span>
-                <span>Goodyear</span> <span>•</span>
-                <span>Pirelli</span> <span>•</span>
-                <span>Bridgestone</span> <span>•</span>
-                <span>Continental</span> <span>•</span>
-                <span>Toyo Tires</span> <span>•</span>
-                <span>Yokohama</span> <span>•</span>
-                <span>Hankook</span>
+                <img src="hd-michelin-logo-transparent-background-701751694705785cnyrhlb7bc.png" alt="Michelin" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Goodyear_Logo.jpg" alt="Goodyear" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="pirelli-vector-logo.png" alt="Pirelli" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Bridgestone-Logo.png" alt="Bridgestone" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="png-clipart-car-continental-ag-continental-automotive-systems-automotive-industry-tire-car-text-orange.png" alt="Continental" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="toyo-tires-vector-logo.png" alt="Toyo Tires" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Yokohama-logo.png" alt="Yokohama" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
+                <img src="Hankook-logo-5500x1000-1.webp" alt="Hankook" class="h-12 object-contain bg-white px-3 py-2 rounded-lg shadow-sm">
             </div>
         </div>
     </section>
@@ -577,16 +577,12 @@
                         <!-- Updated Addresses -->
                         <div class="mt-6 space-y-3 text-sm text-gray-300">
                             <div class="flex items-start gap-4">
-                                <i class="fas fa-building mt-1 text-gray-500"></i>
-                                <div><strong class="text-white">Primary Office:</strong><br>822 Avenue Selkirk, Pointe-Claire, QC H9R 3S3</div>
-                            </div>
-                            <div class="flex items-start gap-4">
                                 <i class="fas fa-headset mt-1 text-gray-500"></i>
-                                <div><strong class="text-white">Dispatch Center:</strong><br>Horta Avenue, Montreal, QC</div>
+                                <div><strong class="text-white">Dispatch Center:</strong><br>Laval, QC</div>
                             </div>
                             <div class="flex items-start gap-4">
                                 <i class="fas fa-tools mt-1 text-brand"></i>
-                                <div><strong class="text-brand">Service Center:</strong><br>814 Avenue Selkirk, Pointe-Claire OR <span class="italic text-white">We come to you!</span></div>
+                                <div><strong class="text-brand">Service Center:</strong><br>822 Avenue Selkirk, Pointe-Claire, QC H9R 3S3<br><span class="italic text-white">OR We come to you!</span></div>
                             </div>
                         </div>
                     </div>
@@ -654,7 +650,7 @@
         </div>
 
         <!-- Chat Toggle Button -->
-        <button onclick="toggleChat()" class="w-16 h-16 rounded-full bg-brand text-black flex items-center justify-center shadow-[0_0_20px_rgba(0,200,83,0.5)] hover:scale-110 transition-transform">
+        <button onclick="toggleChat()" class="w-16 h-16 rounded-full bg-brand text-black flex items-center justify-center shadow-[0_0_20px_rgba(8,250,11,0.5)] hover:scale-110 transition-transform">
             <i class="fas fa-comment-dots text-3xl"></i>
         </button>
     </div>
