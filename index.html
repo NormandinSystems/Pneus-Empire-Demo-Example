@@ -79,19 +79,34 @@
 <body class="bg-gray-50 text-gray-900 dark:bg-dark-bg dark:text-white dark:tread-pattern flex flex-col min-h-screen">
 
     <!-- Navigation -->
+ <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <span class="font-display font-black text-xl tracking-tighter italic uppercase text-white" data-fr="PNEUS EMPIRE">Pneus Empire</span>
+                    <a href="#home" class="font-display font-black text-xl tracking-tighter italic uppercase text-white hover:text-brand transition-colors" data-fr="PNEUS EMPIRE">Pneus Empire</a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#home" class="font-bold hover:text-brand transition-colors" data-fr="Accueil">Home</a>
-                    <a href="#services" class="font-bold hover:text-brand transition-colors" data-fr="Services">Services</a>
-                    <a href="#rim-repair" class="font-bold hover:text-brand transition-colors" data-fr="Réparation Mags">Mag Repair</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="#services" class="font-bold hover:text-brand transition-colors flex items-center gap-1">
+                            <span data-fr="Services">Services</span>
+                            <i class="fas fa-chevron-down text-xs mb-[-2px]"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-0 w-56 bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50">
+                            <div class="py-2 flex flex-col">
+                                <a href="#services" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Pneus & Routier">Tires & Roadside</a>
+                                <a href="#rim-repair" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Réparation Mags/Jantes">Mag & Rim Repair</a>
+                                <a href="#loaner-program" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Pneus de Prêt">Loaner Program</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="#products" class="font-bold hover:text-brand transition-colors" data-fr="Boutique">Shop</a>
                     <a href="careers.html" class="font-bold hover:text-brand transition-colors" data-fr="Carrières">Careers</a>
                     <a href="#contact" class="font-bold hover:text-brand transition-colors" data-fr="Contact">Contact</a>
@@ -120,12 +135,19 @@
 
         <!-- Mobile Menu -->
         <div class="md:hidden hidden bg-white dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-left">
                 <a href="#home" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Accueil">Home</a>
-                <a href="#services" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Services">Services</a>
-                <a href="#rim-repair" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Réparation Mags">Mag Repair</a>
+                
+                <!-- Mobile Services Dropdown / List -->
+                <div class="px-3 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider" data-fr="Services">Services</div>
+                <div class="pl-4 space-y-1 border-l-2 border-brand/30 ml-4 mb-2">
+                    <a href="#services" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Pneus & Routier">Tires & Roadside</a>
+                    <a href="#rim-repair" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Réparation Mags/Jantes">Mag & Rim Repair</a>
+                    <a href="#loaner-program" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Pneus de Prêt">Loaner Program</a>
+                </div>
+
                 <a href="#products" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Boutique">Shop</a>
-                <a href="careers.html" class="font-bold hover:text-brand transition-colors" data-fr="Carrières">Careers</a>
+                <a href="careers.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Carrières">Careers</a>
                 <a href="#contact" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Contact">Contact</a>
             </div>
         </div>
