@@ -442,7 +442,84 @@
         </div>
     </section>
 
-<!-- Tire Loaner Program (UPDATED with Tesla EV Flow & Tiers) -->
+
+   <!-- Mag & Rim Repair (UPDATED Title & Price) -->
+    <section id="rim-repair" class="py-20 bg-gray-100 dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand font-bold uppercase tracking-wide" data-fr="Nouveau Service">New Service</span>
+                <h2 class="font-display font-black text-4xl uppercase mb-4" data-fr="Réparation Mags et Jantes">Mag and Rim Repair</h2>
+                <div class="w-24 h-1 bg-brand mx-auto"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-fr="Ne restez pas bloqué avec une jante fissurée. Nous gérons la réparation de vos roues endommagées.">
+                    Don't get stranded by a cracked or bent rim. We manage the repair process for your damaged wheels to get them rolling safely again.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Info & Pricing -->
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow border border-gray-200 dark:border-gray-800 flex flex-col justify-center h-full min-h-[250px] text-center">
+                        <i class="fas fa-hammer text-5xl text-brand mb-4"></i>
+                        <h4 class="font-bold text-gray-500 uppercase text-sm mb-2" data-fr="Réparation de Mag et Jante">Mag and Rim Repair</h4>
+                        <p class="text-4xl font-black text-gray-900 dark:text-white">Starting <span class="text-brand">$149.99</span><span class="text-lg text-gray-500">+tx</span></p>
+                        <p class="mt-4 text-sm text-gray-600 dark:text-gray-400" data-fr="Contactez-nous pour une évaluation mobile complète de vos jantes endommagées.">Contact us for a complete mobile assessment of your damaged rims.</p>
+                    </div>
+                </div>
+
+                <!-- Mag/Rim Contact Form - NETLIFY ENABLED -->
+                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 relative">
+                    <h3 class="text-2xl font-bold mb-2" data-fr="Demande de Réparation de Jante">Request Rim Repair</h3>
+                    <p class="text-sm text-gray-500 mb-6" data-fr="Remplissez ce formulaire et Murray vous contactera avec les détails.">Fill out this form and Murray will reach out with details.</p>
+                    
+                    <form id="rim-repair-form" name="rim-repair-requests" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitRimForm(event)" class="space-y-4">
+                        <input type="hidden" name="form-name" value="rim-repair-requests" />
+                        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field" /></label></p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Prénom">First Name *</label>
+                                <input type="text" name="first_name" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Nom">Last Name *</label>
+                                <input type="text" name="last_name" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Téléphone">Phone Number *</label>
+                                <input type="tel" name="phone" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Courriel">Email Address *</label>
+                                <input type="email" name="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Véhicule (Année, Marque, Modèle)">Vehicle (Year, Make, Model) *</label>
+                            <input type="text" name="vehicle" required placeholder="e.g. 2021 Tesla Model 3" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Description du Problème">Brief Description of the Issue *</label>
+                            <textarea name="description" required rows="3" placeholder="Cracked rim hitting a pothole..." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand text-black font-bold py-3 rounded hover:bg-white transition-colors shadow-lg mt-2" data-fr="SOUMETTRE LA DEMANDE">
+                            SUBMIT REQUEST
+                        </button>
+                    </form>
+
+                    <!-- Success Message Overlay -->
+                    <div id="rim-success" class="hidden absolute inset-0 bg-white dark:bg-dark-card rounded-2xl flex flex-col items-center justify-center p-8 text-center border-2 border-brand z-10">
+                        <i class="fas fa-check-circle text-6xl text-brand mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2" data-fr="Demande Reçue !">Request Received!</h3>
+                        <p class="text-gray-600 dark:text-gray-300" data-fr="Murray a reçu votre demande de réparation de jante et vous contactera rapidement.">Murray has received your rim repair request and will be in touch shortly.</p>
+                        <button onclick="document.getElementById('rim-success').classList.add('hidden'); document.getElementById('rim-repair-form').reset();" class="mt-6 border border-gray-500 px-6 py-2 rounded font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tire Loaner Program (UPDATED with Tesla EV Flow & Tiers) -->
     <section id="loaner-program" class="py-20 bg-white dark:bg-dark-bg border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -567,83 +644,6 @@
                         <h3 class="text-2xl font-bold mb-2" data-fr="Demande Reçue !">Request Received!</h3>
                         <p class="text-gray-600 dark:text-gray-300" data-fr="Murray a reçu votre demande de prêt et vous contactera rapidement.">Murray has received your loaner request and will be in touch shortly.</p>
                         <button onclick="document.getElementById('loaner-success').classList.add('hidden'); document.getElementById('loaner-program-form').reset();" class="mt-6 border border-gray-500 px-6 py-2 rounded font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Mag & Rim Repair (UPDATED Title & Price) -->
-    <section id="rim-repair" class="py-20 bg-gray-100 dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <span class="text-brand font-bold uppercase tracking-wide" data-fr="Nouveau Service">New Service</span>
-                <h2 class="font-display font-black text-4xl uppercase mb-4" data-fr="Réparation Mags et Jantes">Mag and Rim Repair</h2>
-                <div class="w-24 h-1 bg-brand mx-auto"></div>
-                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-fr="Ne restez pas bloqué avec une jante fissurée. Nous gérons la réparation de vos roues endommagées.">
-                    Don't get stranded by a cracked or bent rim. We manage the repair process for your damaged wheels to get them rolling safely again.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Info & Pricing -->
-                <div class="space-y-6">
-                    <div class="bg-white dark:bg-dark-card p-6 rounded-2xl shadow border border-gray-200 dark:border-gray-800 flex flex-col justify-center h-full min-h-[250px] text-center">
-                        <i class="fas fa-hammer text-5xl text-brand mb-4"></i>
-                        <h4 class="font-bold text-gray-500 uppercase text-sm mb-2" data-fr="Réparation de Mag et Jante">Mag and Rim Repair</h4>
-                        <p class="text-4xl font-black text-gray-900 dark:text-white">Starting <span class="text-brand">$149.99</span><span class="text-lg text-gray-500">+tx</span></p>
-                        <p class="mt-4 text-sm text-gray-600 dark:text-gray-400" data-fr="Contactez-nous pour une évaluation mobile complète de vos jantes endommagées.">Contact us for a complete mobile assessment of your damaged rims.</p>
-                    </div>
-                </div>
-
-                <!-- Mag/Rim Contact Form - NETLIFY ENABLED -->
-                <div class="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 relative">
-                    <h3 class="text-2xl font-bold mb-2" data-fr="Demande de Réparation de Jante">Request Rim Repair</h3>
-                    <p class="text-sm text-gray-500 mb-6" data-fr="Remplissez ce formulaire et Murray vous contactera avec les détails.">Fill out this form and Murray will reach out with details.</p>
-                    
-                    <form id="rim-repair-form" name="rim-repair-requests" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitRimForm(event)" class="space-y-4">
-                        <input type="hidden" name="form-name" value="rim-repair-requests" />
-                        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field" /></label></p>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Prénom">First Name *</label>
-                                <input type="text" name="first_name" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Nom">Last Name *</label>
-                                <input type="text" name="last_name" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Téléphone">Phone Number *</label>
-                                <input type="tel" name="phone" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Courriel">Email Address *</label>
-                                <input type="email" name="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Véhicule (Année, Marque, Modèle)">Vehicle (Year, Make, Model) *</label>
-                            <input type="text" name="vehicle" required placeholder="e.g. 2021 Tesla Model 3" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1" data-fr="Description du Problème">Brief Description of the Issue *</label>
-                            <textarea name="description" required rows="3" placeholder="Cracked rim hitting a pothole..." class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-brand text-black font-bold py-3 rounded hover:bg-white transition-colors shadow-lg mt-2" data-fr="SOUMETTRE LA DEMANDE">
-                            SUBMIT REQUEST
-                        </button>
-                    </form>
-
-                    <!-- Success Message Overlay -->
-                    <div id="rim-success" class="hidden absolute inset-0 bg-white dark:bg-dark-card rounded-2xl flex flex-col items-center justify-center p-8 text-center border-2 border-brand z-10">
-                        <i class="fas fa-check-circle text-6xl text-brand mb-4"></i>
-                        <h3 class="text-2xl font-bold mb-2" data-fr="Demande Reçue !">Request Received!</h3>
-                        <p class="text-gray-600 dark:text-gray-300" data-fr="Murray a reçu votre demande de réparation de jante et vous contactera rapidement.">Murray has received your rim repair request and will be in touch shortly.</p>
-                        <button onclick="document.getElementById('rim-success').classList.add('hidden'); document.getElementById('rim-repair-form').reset();" class="mt-6 border border-gray-500 px-6 py-2 rounded font-bold hover:bg-gray-100 dark:hover:bg-gray-800">Close</button>
                     </div>
                 </div>
             </div>
