@@ -6,7 +6,7 @@
     <!-- Geo-SEO specifically targeting Murray -->
     <meta name="description" content="Pneus Empire Careers - Join Montreal's premier mobile tire and roadside assistance team.">
     <meta name="keywords" content="Tire technician jobs Montreal, careers Pneus Empire, roadside assistance jobs">
-    <meta name="author" content="Murray at Pneus Empire">
+    <meta name="author" content="Pneus Empire">
     <title>Careers | Pneus Empire | Mobile Tire Service</title>
     
     <!-- Tailwind CSS -->
@@ -228,7 +228,7 @@
             
             <div class="max-w-3xl mx-auto bg-gray-50 dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 relative">
                 <h3 class="text-2xl font-bold mb-2" data-fr="Soumettez Votre Candidature">Submit Your Application</h3>
-                <p class="text-sm text-gray-500 mb-8" data-fr="Veuillez remplir le formulaire ci-dessous et joindre votre CV. Murray vous contactera.">Please fill out the form below and attach your resume. Murray will review it and reach out.</p>
+                <p class="text-sm text-gray-500 mb-8" data-fr="Veuillez remplir le formulaire ci-dessous et joindre votre CV. Nous vous contactera.">Please fill out the form below and attach your resume. We will review it and reach out.</p>
 
                 <!-- IMPORTANT: enctype="multipart/form-data" is required for Netlify file uploads -->
                 <form id="careers-form" name="careers-applications" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitCareersForm(event)" class="space-y-5">
@@ -297,8 +297,8 @@
                     <div class="flex items-center gap-3 mb-6">
                         <span class="font-display font-bold text-xl uppercase text-white" data-fr="PNEUS EMPIRE">Pneus Empire</span>
                     </div>
-                    <p class="text-gray-400 mb-6" data-fr="Le premier service mobile de pneus et d'assistance routière de Montréal. Exploité localement par Murray.">
-                        Montreal's premier mobile tire and roadside assistance service. Locally owned and operated by Murray. We bring the shop to you.
+                    <p class="text-gray-400 mb-6" data-fr="Le premier service mobile de pneus et d'assistance routière de Montréal. Exploité localement">
+                        Montreal's premier mobile tire and roadside assistance service. Locally owned and operated. We bring the shop to you.
                     </p>
                     <div class="space-y-4">
                         <div class="flex items-center gap-4 text-brand font-bold text-lg border border-brand/30 p-3 rounded-lg bg-brand/5 inline-flex">
@@ -367,7 +367,7 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-sm leading-tight">Empire AI Bot</h4>
-                        <p class="text-xs opacity-80" data-fr="Assistant de Murray">Murray's Assistant</p>
+                        <p class="text-xs opacity-80" data-fr="Assistant de Pneus Empire">Pneus Empire's Assistant</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-black hover:opacity-70"><i class="fas fa-times"></i></button>
@@ -377,8 +377,8 @@
                 <!-- Bot Message -->
                 <div class="flex gap-2">
                     <div class="w-6 h-6 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-black text-xs mt-1"><i class="fas fa-bolt"></i></div>
-                    <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white" data-fr="Salut ! Je suis l'assistant IA de Murray. Vous avez besoin d'aide pour vos pneus, d'un devis ou d'un service d'urgence ? (Anglais/Français supporté)">
-                        Hi! I'm Murray's AI Assistant. Do you need help with tires, a quote, or emergency service? (English/French supported)
+                    <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white" data-fr="Salut ! Je suis l'assistant IA de Pneus Empire. Vous avez besoin d'aide pour vos pneus, d'un devis ou d'un service d'urgence ? (Anglais/Français supporté)">
+                        Hi! I'm Pneus Empire's AI Assistant. Do you need help with tires, a quote, or emergency service? (English/French supported)
                     </div>
                 </div>
             </div>
@@ -463,9 +463,9 @@
 
             // Simulate Bot Response routing to Murray
             setTimeout(() => {
-                let botReply = "I've sent your request directly to Murray. He will review it and contact you shortly. Please leave your phone number if you haven't already.";
+                let botReply = "I've sent your request directly to our team. We will review it and contact you shortly. Please leave your phone number if you haven't already.";
                 if(currentLang === 'fr') {
-                    botReply = "J'ai envoyé votre demande directement à Murray. Il l'examinera et vous contactera sous peu. Veuillez laisser votre numéro de téléphone si ce n'est pas déjà fait.";
+                    botReply = "J'ai envoyé votre demande directement à notre equipe. Ons l'examinera et vous contactera sous peu. Veuillez laisser votre numéro de téléphone si ce n'est pas déjà fait.";
                 }
                 
                 chatMessages.innerHTML += `
