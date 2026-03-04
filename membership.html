@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tire and Wheel Service Packages by Pneus Empire. Enjoy worry-free tire care with our comprehensive VIP mobile service packages in Montreal.">
+    <title>Membership Packages | Pneus Empire</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration & Custom Styles -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#08fa0b',
+                            dark: '#06d409',
+                            light: '#3dfb3f'
+                        },
+                        dark: {
+                            bg: '#0a0a0a',
+                            surface: '#121212',
+                            card: '#1a1a1a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(8, 250, 11, 0.5), 0 0 20px rgba(8, 250, 11, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .hero-bg-membership {
+            /* Sleek, luxury automotive vibe */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .tread-pattern {
+            background-color: #0a0a0a;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2h-20v2h20v2h-20v2h20v2h-20v2h20v2H22V20.5h-2z' fill='%231a1a1a' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        body { transition: background-color 0.3s, color 0.3s; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-dark-bg dark:text-white dark:tread-pattern flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="index.html" class="font-display font-black text-xl tracking-tighter italic uppercase text-white hover:text-brand transition-colors" data-fr="PNEUS EMPIRE">Pneus Empire</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="index.html#home" class="font-bold hover:text-brand transition-colors" data-fr="Accueil">Home</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="index.html#services" class="font-bold hover:text-brand transition-colors flex items-center gap-1">
+                            <span data-fr="Services">Services</span>
+                            <i class="fas fa-chevron-down text-xs mb-[-2px]"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-0 w-64 bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50">
+                            <div class="py-2 flex flex-col">
+                                <a href="index.html#services" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Pneus & Assistance Routière">Tires & Roadside Assistance</a>
+                                <a href="index.html#rim-repair" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Réparation Mags/Jantes">Mag & Rim Repair</a>
+                                <a href="index.html#loaner-program" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Pneus de Prêt">Tesla Loaner Program</a>
+                                <a href="weatherproofing.html" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Traitement Anti-Pluie">Rain Repellent Treatment</a>
+                                <a href="cabin-air-filters.html" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Filtres d'Habitacle">Cabin Air Filters</a>
+                                <a href="tire-storage.html" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Entreposage de Pneus">Tire Storage</a>
+                                <a href="#" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Forfaits Adhésion">Membership Packages</a>
+                                <a href="shop.html" class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-colors" data-fr="Boutique">Tires & Wheels</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="careers.html" class="font-bold hover:text-brand transition-colors" data-fr="Carrières">Careers</a>
+                    <a href="index.html#contact" class="font-bold hover:text-brand transition-colors" data-fr="Contact">Contact</a>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="flex items-center gap-4">
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLang()" class="font-bold text-sm bg-gray-200 dark:bg-gray-800 px-3 py-1 rounded hover:text-brand transition-colors">
+                        <i class="fas fa-globe mr-1"></i><span id="lang-text">EN</span>
+                    </button>
+
+                    <!-- Call Button -->
+                    <a href="tel:2639932537" class="bg-brand hover:bg-brand-light text-black font-black py-2 px-4 rounded-full shadow-neon transform hover:scale-105 transition-all flex items-center gap-2">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="hidden sm:inline" data-fr="APPELER">CALL NOW</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white dark:bg-dark-surface border-t border-gray-200 dark:border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-left">
+                <a href="index.html#home" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Accueil">Home</a>
+                
+                <!-- Mobile Services Dropdown / List -->
+                <div class="px-3 py-2 font-bold text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider" data-fr="Services">Services</div>
+                <div class="pl-4 space-y-1 border-l-2 border-brand/30 ml-4 mb-2">
+                    <a href="index.html#services" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Pneus & Assistance Routière">Tires & Roadside Assistance</a>
+                    <a href="index.html#rim-repair" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Réparation Mags/Jantes">Mag & Rim Repair</a>
+                    <a href="index.html#loaner-program" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Pneus de Prêt">Tesla Loaner Program</a>
+                    <a href="weatherproofing.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Traitement Anti-Pluie">Rain Repellent Treatment</a>
+                    <a href="cabin-air-filters.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Filtres d'Habitacle">Cabin Air Filters</a>
+                    <a href="tire-storage.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Entreposage de Pneus">Tire Storage</a>
+                    <a href="#" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Forfaits Adhésion">Membership Packages</a>
+                    <a href="shop.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800 text-sm" data-fr="Boutique">Tires & Wheels</a>
+                </div>
+
+                <a href="careers.html" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Carrières">Careers</a>
+                <a href="index.html#contact" class="block px-3 py-2 rounded-md font-bold hover:bg-gray-100 dark:hover:bg-gray-800" data-fr="Contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-membership pt-32 pb-20 flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black/40 z-0"></div> <!-- Dark overlay -->
+        <div class="container mx-auto px-4 z-10 text-center text-white mt-10">
+            <span class="text-brand font-bold tracking-widest mb-4 uppercase" data-fr="Tranquillité d'Esprit Totale">Total Peace of Mind</span>
+            <h1 class="font-display font-black text-5xl md:text-7xl mb-6 uppercase italic leading-tight" data-fr="Forfaits de Services Pneus et Jantes">
+                Tire & Wheel Service Packages
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-200 font-light" data-fr="Profitez d'un entretien de pneus sans souci grâce à nos forfaits de services complets, adaptés à vos besoins à l'endroit de votre choix.">
+                Enjoy worry-free tire care with our comprehensive VIP service packages, tailored to your needs right at your preferred location.
+            </p>
+            <button onclick="openMembershipModal()" class="bg-brand text-black font-black text-lg py-4 px-10 rounded hover:bg-white transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(8,250,11,0.6)] inline-block">
+                <i class="fas fa-crown mr-2"></i> <span data-fr="VOIR LES FORFAITS">VIEW PACKAGES</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Intro Text & Disclaimer -->
+    <section class="py-12 bg-gray-50 dark:bg-dark-surface border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-6" data-fr="Choisissez parmi nos plans conçus par des experts et laissez-nous nous occuper de tout pour vous offrir une tranquillité d'esprit. Pour une expérience personnalisée, contactez-nous avec vos besoins spécifiques !">
+                Choose from our expert-curated plans and let us handle everything, giving you total peace of mind. For a personalized experience, reach out to us with your specific requirements!
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 text-sm text-gray-500 dark:text-gray-500 font-medium">
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fas fa-info-circle text-brand"></i>
+                    <span data-fr="Si vous avez besoin d'un service individuel, consultez notre page de services.">If you require an individual service, please consult our services page.</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <i class="fas fa-info-circle text-brand"></i>
+                    <span data-fr="Les prix indiqués sont calculés pour des pneus de taille standard.">The prices listed are calculated based on standard tire sizes.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Plans Grid -->
+    <section class="py-20 bg-gray-100 dark:bg-black">
+        <div class="container mx-auto px-4">
+            
+            <!-- Billing Toggle Switch -->
+            <div class="flex flex-wrap justify-center mb-12 gap-2">
+                <div class="bg-gray-200 dark:bg-dark-surface p-1 rounded-full border border-gray-300 dark:border-gray-700 inline-flex shadow-inner">
+                    <button onclick="setBilling('annual')" id="btn-annual" class="px-6 py-2 rounded-full font-bold transition-all bg-brand text-black shadow-lg" data-fr="Annuel">Annual</button>
+                    <button onclick="setBilling('monthly')" id="btn-monthly" class="px-6 py-2 rounded-full font-bold transition-all text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" data-fr="Mensuel">Monthly</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                
+                <!-- Standard Plan -->
+                <div class="bg-white dark:bg-dark-card rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col transition-transform hover:-translate-y-1">
+                    <div class="p-8 text-center bg-gray-100 dark:bg-dark-surface border-b border-gray-200 dark:border-gray-800">
+                        <h3 class="font-black text-2xl uppercase text-gray-900 dark:text-white mb-2" data-fr="Standard">Standard</h3>
+                        
+                        <!-- Annual Pricing -->
+                        <div class="price-annual block">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-gray-900 dark:text-white">$331.98</span><span class="text-xl font-bold text-gray-500 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2 block" data-fr="Par Année">per year</span>
+                        </div>
+
+                        <!-- Monthly Pricing -->
+                        <div class="price-monthly hidden">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-gray-900 dark:text-white">$34.99</span><span class="text-xl font-bold text-gray-500 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2 block" data-fr="Par Mois">per month</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <ul class="space-y-5 mb-8 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-truck text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Service Mobile VIP">VIP Mobile Service:</strong>
+                                    <span class="text-sm" data-fr="2 changements de roues saisonniers, 2 réparations de crevaisons annuelles, et balancement des pneus à l'endroit de votre choix.">2 seasonal wheel swaps, 2 annual flat repairs, and tire balancing conducted at your preferred location.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-exclamation-triangle text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="1 Assistance Pneu Crevé">1 Emergency Flat Tire Assistance:</strong>
+                                    <span class="text-sm" data-fr="Réponse rapide pour pneus crevés ou problèmes liés aux pneus dans la zone de service.">Quick response for flat tires or tire-related issues within the service area.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-warehouse text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Entreposage Saisonnier de Base">Seasonal Basic Tire Storage:</strong>
+                                    <span class="text-sm" data-fr="Entreposage à température contrôlée pour vos pneus saisonniers.">Climate-controlled storage for seasonal tires, keeping them in top condition.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-bell text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Rappels d'Entretien">Service Reminders:</strong>
+                                    <span class="text-sm" data-fr="Rappels automatisés pour les changements, rotations et inspections.">Automated reminders for seasonal tire changes, rotations, and inspections.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <button onclick="openMembershipModal('Standard')" class="block w-full bg-gray-200 dark:bg-gray-800 text-center text-gray-900 dark:text-white font-bold py-3 rounded-xl hover:bg-brand hover:text-black dark:hover:bg-brand transition-colors" data-fr="CHOISIR LE PLAN">CHOOSE PLAN</button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan (Highlighted) -->
+                <div class="bg-gray-900 dark:bg-dark-card rounded-3xl shadow-2xl border-2 border-brand overflow-hidden flex flex-col transition-transform hover:-translate-y-1 relative transform md:scale-105 z-10">
+                    <div class="absolute top-0 inset-x-0 text-center bg-brand text-black text-xs font-black py-1 uppercase tracking-widest" data-fr="LE PLUS POPULAIRE">MOST POPULAR</div>
+                    <div class="p-8 pt-10 text-center border-b border-gray-800">
+                        <h3 class="font-black text-2xl uppercase text-white mb-2" data-fr="Premium">Premium</h3>
+                        
+                        <!-- Annual Pricing -->
+                        <div class="price-annual block">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-brand">$561.98</span><span class="text-xl font-bold text-gray-400 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2 block" data-fr="Par Année">per year</span>
+                        </div>
+
+                        <!-- Monthly Pricing -->
+                        <div class="price-monthly hidden">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-brand">$54.99</span><span class="text-xl font-bold text-gray-400 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest mt-2 block" data-fr="Par Mois">per month</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <ul class="space-y-5 mb-8 text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-truck text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="Service Mobile VIP">VIP Mobile Service:</strong>
+                                    <span class="text-sm" data-fr="2 montages de pneus saisonniers, 2 réparations de crevaisons annuelles à l'endroit de votre choix.">2 seasonal tire mounts, 2 annual flat repairs at your preferred location.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-exclamation-triangle text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="2 Assistances Pneu Crevé">2 Emergency Flat Tire Assistance:</strong>
+                                    <span class="text-sm" data-fr="Réponse rapide pour pneus crevés ou problèmes liés aux pneus dans la zone de service.">Fast response for flat tires or tire-related issues within the service area.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-gem text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="Entreposage Premium Saisonnier">Seasonal Premium Tire Storage:</strong>
+                                    <span class="text-sm" data-fr="Entreposage climatisé avec lavage des pneus et traitement pour prolonger la durée de vie.">Climate-controlled storage with tire washing and dressing to prevent cracks and prolong tire life.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-bell text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="Rappels d'Entretien">Service Reminders:</strong>
+                                    <span class="text-sm" data-fr="Rappels automatisés pour les changements, rotations et inspections.">Automated reminders for seasonal tire changes, rotations, and inspections.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-balance-scale text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="Balancement Avancé">Advanced Balancing:</strong>
+                                    <span class="text-sm" data-fr="Balancement précis pour roues multi-pièces et véhicules OTR (sur demande).">Precise balancing for multi-piece wheels and OTR vehicles (on demand).</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-calendar-check text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-white block mb-1" data-fr="Réservation Prioritaire">Priority Booking:</strong>
+                                    <span class="text-sm" data-fr="Premier accès aux fenêtres de réservation, surtout pendant les hautes saisons.">First access to booking windows, especially during peak seasons.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <button onclick="openMembershipModal('Premium')" class="block w-full bg-brand text-black text-center font-black py-4 rounded-xl hover:bg-white transition-colors shadow-lg" data-fr="CHOISIR LE PLAN">CHOOSE PLAN</button>
+                    </div>
+                </div>
+
+                <!-- Executive Plan -->
+                <div class="bg-white dark:bg-dark-card rounded-3xl shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col transition-transform hover:-translate-y-1">
+                    <div class="p-8 text-center bg-gray-100 dark:bg-dark-surface border-b border-gray-200 dark:border-gray-800">
+                        <h3 class="font-black text-2xl uppercase text-gray-900 dark:text-white mb-2" data-fr="Exécutif">Executive</h3>
+                        
+                        <!-- Annual Pricing -->
+                        <div class="price-annual block">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-gray-900 dark:text-white">$664.98</span><span class="text-xl font-bold text-gray-500 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2 block" data-fr="Par Année">per year</span>
+                        </div>
+
+                        <!-- Monthly Pricing -->
+                        <div class="price-monthly hidden">
+                            <div class="flex items-end justify-center gap-1 mt-4">
+                                <span class="text-5xl font-black text-gray-900 dark:text-white">$64.99</span><span class="text-xl font-bold text-gray-500 mb-1">+tx</span>
+                            </div>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest mt-2 block" data-fr="Par Mois">per month</span>
+                        </div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <ul class="space-y-5 mb-8 text-gray-700 dark:text-gray-300 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-truck text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Service Mobile VIP">VIP Mobile Service:</strong>
+                                    <span class="text-sm" data-fr="2 montages de pneus saisonniers, 2 réparations de crevaisons annuelles.">2 seasonal tire mounts, 2 annual flat repairs at your preferred location.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-exclamation-triangle text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="2 Assistances Pneu Crevé">2 Emergency Flat Tire Assistance:</strong>
+                                    <span class="text-sm" data-fr="Réponse rapide dans la zone de service.">Fast response for flat tires or tire-related issues within the service area.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-star text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Entreposage Gant Blanc Saisonnier">Seasonal White-Glove Tire Storage:</strong>
+                                    <span class="text-sm" data-fr="Entreposage climatisé garantissant des pneus en condition optimale.">Climate-controlled storage, ensuring your tires are kept in peak condition.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-bell text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Rappels d'Entretien">Service Reminders:</strong>
+                                    <span class="text-sm" data-fr="Rappels automatisés.">Automated reminders for seasonal tire changes, rotations, and inspections.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-balance-scale text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Balancement Avancé">Advanced Balancing:</strong>
+                                    <span class="text-sm" data-fr="Équipement de pointe pour véhicules passagers et OTR (optionnel).">State-of-the-art equipment for precise balancing of passenger and OTR vehicles (optional).</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-calendar-check text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Réservation Prioritaire">Priority Booking:</strong>
+                                    <span class="text-sm" data-fr="Premier accès aux réservations.">First access to booking windows, especially during peak seasons.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-clipboard-check text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="Inspection Multi-Points">Multi-Point Vehicle Inspection:</strong>
+                                    <span class="text-sm" data-fr="Essuie-glaces, freins, direction, usure, batterie et liquide lave-glace.">Inspection of wipers, brakes, steering, tire wear, battery, and windshield washer top-up.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fas fa-car-crash text-brand mt-1"></i>
+                                <div>
+                                    <strong class="text-gray-900 dark:text-white block mb-1" data-fr="1 Diagnostic Check Engine">1 Check Engine Diagnostic:</strong>
+                                    <span class="text-sm" data-fr="Rapport PDF sur les codes et les systèmes défectueux.">PDF report on codes and faulty systems.</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <button onclick="openMembershipModal('Executive')" class="block w-full bg-gray-200 dark:bg-gray-800 text-center text-gray-900 dark:text-white font-bold py-3 rounded-xl hover:bg-brand hover:text-black dark:hover:bg-brand transition-colors" data-fr="CHOISIR LE PLAN">CHOOSE PLAN</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Request Modal (Popup) -->
+    <div id="membership-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-black/80 backdrop-blur-sm">
+        <!-- Using items-start on mobile ensures the top edge isn't chopped off by flexbox, pt-16 gives breathing room for close btn -->
+        <div class="flex min-h-full items-start md:items-center justify-center p-4 pt-16 md:pt-4">
+            <div class="bg-white dark:bg-dark-card w-full max-w-3xl rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 relative">
+                
+                <!-- Close Button -->
+                <button onclick="closeMembershipModal()" class="absolute -top-12 right-0 md:top-3 md:right-3 w-10 h-10 rounded-full bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 hover:text-brand hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center text-xl z-20 shadow-lg border border-gray-300 dark:border-gray-600 transition-all">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- Form Content -->
+                <div id="membership-form-content" class="p-8 md:p-12">
+                    <h3 class="text-3xl font-black font-display uppercase mb-2 text-gray-900 dark:text-white" data-fr="Demande d'Adhésion">Request Membership</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8" data-fr="Remplissez le formulaire ci-dessous pour démarrer votre forfait annuel. Notre équipe vous contactera pour finaliser l'activation.">
+                        Fill out the form below to initiate your annual package. Our team will reach out to finalize activation.
+                    </p>
+
+                    <!-- NETLIFY ENABLED FORM -->
+                    <form id="membership-form" name="membership-requests" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitMembershipForm(event)" class="space-y-6">
+                        <input type="hidden" name="form-name" value="membership-requests" />
+                        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field" /></label></p>
+                        
+                        <!-- Personal Info -->
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2" data-fr="Prénom & Nom">Full Name *</label>
+                                <input type="text" name="full_name" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2" data-fr="Téléphone">Phone Number *</label>
+                                <input type="tel" name="phone" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand outline-none transition-colors">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2" data-fr="Courriel">Email Address *</label>
+                                <input type="email" name="email" required class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand outline-none transition-colors">
+                            </div>
+                        </div>
+
+                        <hr class="border-gray-200 dark:border-gray-700 my-6">
+
+                        <!-- Membership Options -->
+                        <div>
+                            <h4 class="font-bold mb-4 text-brand uppercase tracking-wider" data-fr="Détails du Forfait">Package Details</h4>
+                            <div class="grid gap-5">
+                                
+                                <!-- Plan Selection -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2" data-fr="Forfait Souhaité">Desired Package *</label>
+                                    <select name="membership_plan" id="modal_membership_plan" required class="w-full bg-brand/10 dark:bg-brand/5 border border-brand/50 rounded-lg px-4 py-3 text-sm font-bold text-gray-900 dark:text-white focus:border-brand outline-none">
+                                        <option value="" disabled selected data-fr="Sélectionnez un forfait..." class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Select a plan...</option>
+                                        <option value="Standard Plan (Annual)" data-fr="Forfait Standard (Annuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Standard Plan ($331.98 / year)</option>
+                                        <option value="Standard Plan (Monthly)" data-fr="Forfait Standard (Mensuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Standard Plan ($34.99 / month)</option>
+                                        <option value="Premium Plan (Annual)" data-fr="Forfait Premium (Annuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Premium Plan ($561.98 / year)</option>
+                                        <option value="Premium Plan (Monthly)" data-fr="Forfait Premium (Mensuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Premium Plan ($54.99 / month)</option>
+                                        <option value="Executive Plan (Annual)" data-fr="Forfait Exécutif (Annuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Executive Plan ($664.98 / year)</option>
+                                        <option value="Executive Plan (Monthly)" data-fr="Forfait Exécutif (Mensuel)" class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">Executive Plan ($64.99 / month)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="md:col-span-3">
+                                        <label class="block text-xs font-bold text-gray-600 dark:text-gray-400 mb-1" data-fr="Véhicule Principal (Année, Marque, Modèle) *">Primary Vehicle (Year, Make, Model) *</label>
+                                        <input type="text" name="primary_vehicle" required placeholder="e.g. 2022 Toyota Rav4" class="w-full bg-gray-50 dark:bg-black border border-gray-300 dark:border-gray-700 rounded px-3 py-2 text-sm focus:border-brand outline-none">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand text-black font-black py-4 rounded-lg hover:bg-brand-light transition-colors shadow-lg mt-6 text-lg tracking-wide" data-fr="DEMANDER L'ADHÉSION">
+                            REQUEST MEMBERSHIP
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Overlay -->
+                <div id="membership-success" class="hidden p-12 text-center flex-col items-center justify-center min-h-[400px]">
+                    <i class="fas fa-check-circle text-7xl text-brand mb-6"></i>
+                    <h3 class="text-3xl font-bold mb-3 text-gray-900 dark:text-white" data-fr="Demande Envoyée !">Request Sent!</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-md mx-auto" data-fr="Merci ! Notre équipe a reçu votre demande d'adhésion et vous contactera sous peu pour l'activation.">
+                        Thank you! Our team has received your membership request and will reach out shortly to process activation.
+                    </p>
+                    <button onclick="closeMembershipModal()" class="border-2 border-brand text-brand hover:bg-brand hover:text-black font-bold px-8 py-3 rounded-lg transition-colors">
+                        Close Window
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-black text-white pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="font-display font-bold text-xl uppercase text-white" data-fr="PNEUS EMPIRE">Pneus Empire</span>
+                    </div>
+                    <p class="text-gray-400 mb-6" data-fr="Atelier de réparation de pneus hybrides haut de gamme à Montréal / assistance routière et pneumatiques mobile. Entreprise locale.">
+                        Montreal's premium hybrid shop / mobile tire and roadside assistance. Locally owned and operated.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-brand font-bold text-lg border border-brand/30 p-3 rounded-lg bg-brand/5 inline-flex">
+                            <i class="fas fa-clock"></i>
+                            <span data-fr="Disponible 24/7 (Frais de service après les heures normales applicables)">Available 24/7 (After-hours service fee applies)</span>
+                        </div>
+                        <a href="tel:2639932537" class="flex items-center gap-4 text-xl font-bold hover:text-brand transition-colors mt-4">
+                            <div class="w-10 h-10 rounded-full bg-brand text-black flex items-center justify-center">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            (263) 993-2537
+                        </a>
+                        <a href="mailto:info@pneusempire.ca" class="flex items-center gap-4 hover:text-brand transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            info@pneusempire.ca
+                        </a>
+                        
+                        <!-- Updated Addresses -->
+                        <div class="mt-6 space-y-3 text-sm text-gray-300">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-headset mt-1 text-gray-500"></i>
+                                <div><strong class="text-white">Dispatch Center:</strong><br>Laval, QC</div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-tools mt-1 text-brand"></i>
+                                <div><strong class="text-brand">Service Center:</strong><br>822 Avenue Selkirk, Pointe-Claire, QC H9R 3S3<br><span class="italic text-white">OR We come to you!</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps -->
+                <div class="h-80 rounded-xl overflow-hidden border border-gray-800 shadow-neon">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.973410714902!2d-73.82527222384976!3d45.46788597107386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc93c0dae855555%3A0x7d6b9f2c6e6b8a8!2s822%20Av.%20Selkirk%2C%20Pointe-Claire%2C%20QC%20H9R%203S3!5e0!3m2!1sen!2sca!4v1709140000000!5m2!1sen!2sca" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Pneus Empire. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot Widget -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden w-80 bg-white dark:bg-dark-surface rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-4 transition-all duration-300 transform origin-bottom-right">
+            <div class="bg-brand text-black p-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                        <i class="fas fa-robot text-brand"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">Empire AI Bot</h4>
+                        <p class="text-xs opacity-80" data-fr="Assistant de Pneus Empire">Pneus Empire's Assistant</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-black hover:opacity-70"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 bg-gray-50 dark:bg-black/50 space-y-4">
+                <!-- Bot Message -->
+                <div class="flex gap-2">
+                    <div class="w-6 h-6 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-black text-xs mt-1"><i class="fas fa-bolt"></i></div>
+                    <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white" data-fr="Salut ! Je suis l'assistant IA de Pneus Empire Vous avez besoin d'aide pour vos pneus, d'un devis ou d'un service d'urgence ? (Anglais/Français supporté)">
+                        Hi! I'm Pneus Empire's AI Assistant. Do you need help with tires, a quote, or emergency service? (English/French supported)
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chat-input-area" class="p-3 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-dark-surface">
+                <form onsubmit="handleChatSubmit(event)" class="flex gap-2">
+                    <input type="text" id="chat-input" placeholder="Type your message..." required class="flex-1 bg-gray-100 dark:bg-black border border-gray-300 dark:border-gray-700 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-brand dark:text-white">
+                    <button type="submit" class="w-10 h-10 rounded-full bg-brand text-black flex items-center justify-center hover:bg-brand-light transition-colors shadow-lg">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Toggle Button -->
+        <button onclick="toggleChat()" class="w-16 h-16 rounded-full bg-brand text-black flex items-center justify-center shadow-[0_0_20px_rgba(8,250,11,0.5)] hover:scale-110 transition-transform">
+            <i class="fas fa-comment-dots text-3xl"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // --- Mobile Menu Logic ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Billing Toggle Logic ---
+        let currentBilling = 'annual';
+        function setBilling(type) {
+            currentBilling = type;
+            const btnAnnual = document.getElementById('btn-annual');
+            const btnMonthly = document.getElementById('btn-monthly');
+            const annualPrices = document.querySelectorAll('.price-annual');
+            const monthlyPrices = document.querySelectorAll('.price-monthly');
+
+            if (type === 'annual') {
+                btnAnnual.classList.add('bg-brand', 'text-black', 'shadow-lg');
+                btnAnnual.classList.remove('text-gray-600', 'dark:text-gray-400', 'bg-transparent');
+                btnMonthly.classList.remove('bg-brand', 'text-black', 'shadow-lg');
+                btnMonthly.classList.add('text-gray-600', 'dark:text-gray-400', 'bg-transparent');
+
+                annualPrices.forEach(el => { el.classList.remove('hidden'); el.classList.add('block'); });
+                monthlyPrices.forEach(el => { el.classList.add('hidden'); el.classList.remove('block'); });
+            } else {
+                btnMonthly.classList.add('bg-brand', 'text-black', 'shadow-lg');
+                btnMonthly.classList.remove('text-gray-600', 'dark:text-gray-400', 'bg-transparent');
+                btnAnnual.classList.remove('bg-brand', 'text-black', 'shadow-lg');
+                btnAnnual.classList.add('text-gray-600', 'dark:text-gray-400', 'bg-transparent');
+
+                annualPrices.forEach(el => { el.classList.add('hidden'); el.classList.remove('block'); });
+                monthlyPrices.forEach(el => { el.classList.remove('hidden'); el.classList.add('block'); });
+            }
+        }
+
+        // --- Membership Modal Logic ---
+        function openMembershipModal(plan = '') {
+            document.getElementById('membership-modal').classList.remove('hidden');
+            // Dynamically pre-select the correct plan AND billing frequency
+            if (plan) {
+                const select = document.getElementById('modal_membership_plan');
+                const billingType = currentBilling === 'annual' ? 'Annual' : 'Monthly';
+                const matchString = `${plan} Plan (${billingType})`;
+                
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === matchString) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function closeMembershipModal() {
+            document.getElementById('membership-modal').classList.add('hidden');
+            // Reset modal after transition
+            setTimeout(() => {
+                document.getElementById('membership-form-content').classList.remove('hidden');
+                document.getElementById('membership-success').classList.add('hidden');
+                document.getElementById('membership-form').reset();
+            }, 300);
+        }
+
+        // Membership Request Form Logic (Netlify AJAX)
+        function submitMembershipForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                document.getElementById('membership-form-content').classList.add('hidden');
+                document.getElementById('membership-success').classList.remove('hidden');
+                document.getElementById('membership-success').classList.add('flex');
+            })
+            .catch((error) => console.error("Form submission error:", error));
+        }
+
+        // --- Chatbot Logic ---
+        let chatStep = 0;
+        function toggleChat() {
+            const w = document.getElementById('chatbot-window');
+            w.classList.toggle('hidden');
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const msg = input.value.trim();
+            if(!msg) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            // User Message HTML
+            chatMessages.innerHTML += `
+                <div class="flex gap-2 justify-end">
+                    <div class="bg-brand text-black text-sm p-3 rounded-lg rounded-tr-none">
+                        ${msg}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+
+            // Simulate Bot Response routing to team
+            setTimeout(() => {
+                let botReply = "I've sent your request directly to our team. We will review it and contact you shortly. Please leave your phone number if you haven't already.";
+                if(currentLang === 'fr') {
+                    botReply = "J'ai envoyé votre demande directement à notre équipe. Nous l'examinerons et vous contacterons sous peu. Veuillez laisser votre numéro de téléphone si ce n'est pas déjà fait.";
+                }
+                
+                chatMessages.innerHTML += `
+                    <div class="flex gap-2">
+                        <div class="w-6 h-6 rounded-full bg-brand flex-shrink-0 flex items-center justify-center text-black text-xs mt-1"><i class="fas fa-check"></i></div>
+                        <div class="bg-gray-200 dark:bg-gray-800 text-sm p-3 rounded-lg rounded-tl-none text-gray-900 dark:text-white border border-brand/50">
+                            ${botReply}
+                        </div>
+                    </div>
+                `;
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 800);
+            
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // --- Simple Bilingual (EN/FR) Logic ---
+        let currentLang = 'en';
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            
+            // Switch Text elements marked with data-fr
+            document.querySelectorAll('[data-fr]').forEach(el => {
+                // Save original English text if not saved yet
+                if (!el.dataset.en) el.dataset.en = el.innerHTML;
+                
+                // Swap content based on language
+                el.innerHTML = currentLang === 'fr' ? el.dataset.fr : el.dataset.en;
+            });
+
+            // Update Toggle Button UI
+            document.getElementById('lang-text').innerText = currentLang === 'en' ? 'EN' : 'FR';
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+    </script>
+</body>
+</html>
